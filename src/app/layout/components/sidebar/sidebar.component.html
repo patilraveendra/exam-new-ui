@@ -1,0 +1,32 @@
+<nav [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }" class="sidebar">
+    <div class="list-group">
+        <a [routerLinkActive]="['router-link-active']" class="list-group-item" routerLink="/dashboard">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+            <span>{{ 'Dashboard' | translate }}</span>
+        </a>
+
+        <div *ngIf="isStudent$ | async as isStudent">
+            <a [routerLinkActive]="['router-link-active']" [routerLink]="['/join-exam']" class="list-group-item">
+                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <span>{{ 'Give Exam' }}</span>
+            </a>
+
+            <a [routerLinkActive]="['router-link-active']" [routerLink]="['/see-results']" class="list-group-item">
+                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <span>{{ 'See results'}}</span>
+            </a>
+
+        </div>
+
+        <div *ngIf="isTeacher$ | async as isTeacher">
+            <a [routerLinkActive]="['router-link-active']" [routerLink]="['/see-results']" class="list-group-item">
+                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <span>{{ 'Create exam'}}</span>
+            </a>
+        </div>
+    </div>
+    <div (click)="toggleCollapsed()" [ngClass]="{ collapsed: collapsed }" class="toggle-button">
+        <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i>&nbsp;
+        <span>{{ 'Collapse Sidebar' | translate }}</span>
+    </div>
+</nav>

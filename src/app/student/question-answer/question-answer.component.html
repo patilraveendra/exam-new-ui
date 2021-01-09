@@ -1,0 +1,53 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Question'" [icon]="'fa-book'"></app-page-header>
+    <div class="row">
+        <div class="col col-sm-12">
+            <div class="card mb-12">
+                <div class="card-header">
+                    Please answer following questions
+                </div>
+
+                <div class="card-body">
+                    <div *ngIf="questionSet">
+                        <div *ngIf="currentQuestion">
+                            <h1>{{currentQuestion.question}}</h1>
+
+                            <div class="form-group">
+
+                                <mat-radio-group aria-labelledby="example-radio-group-label"
+                                    [(ngModel)]="selectedAnswer" class="example-radio-group">
+                                    <div class="radio">
+                                        <mat-radio-button class="example-radio-button" [value]="1">
+                                            {{currentQuestion.optionA}}
+                                        </mat-radio-button>
+                                    </div>
+                                    <div class="radio">
+                                        <mat-radio-button class="example-radio-button" [value]="2">
+                                            {{currentQuestion.optionB}}
+                                        </mat-radio-button>
+                                    </div>
+                                    <div class="radio">
+                                        <mat-radio-button class="example-radio-button" [value]="3">
+                                            {{currentQuestion.optionC}}
+                                        </mat-radio-button>
+                                    </div>
+                                    <div class="radio">
+                                        <mat-radio-button class="example-radio-button" [value]="4">
+                                            {{currentQuestion.optionD}}
+                                        </mat-radio-button>
+                                    </div>
+                                </mat-radio-group>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                <button mat-raised-button color="primary" (click)="onNext()">Next Question</button>
+                                <button mat-raised-button color="warning" type="submit">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

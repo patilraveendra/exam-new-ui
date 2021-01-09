@@ -1,0 +1,44 @@
+{
+    "questions": [
+      {
+        "id": "1",
+        "question": "which is/was the best bike",
+        "optionA": "unicorn",
+        "optionB": "pulsar",
+        "optionC": "ninja",
+        "optionD": "honda"
+      },
+      {
+        "id": "2",
+        "question": "which is the best car",
+        "optionA": "maruti",
+        "optionB": "honda",
+        "optionC": "hyundai",
+        "optionD": "mahindra"
+      },
+      {
+        "id": "3",
+        "question": "which is the best place",
+        "optionA": "dellhi",
+        "optionB": "punjab",
+        "optionC": "kashmir",
+        "optionD": "pakistan"
+      },
+      {
+        "id": "4",
+        "question": "which is the best state",
+        "optionA": "maharastra",
+        "optionB": "punjab",
+        "optionC": "gujrat",
+        "optionD": "bengal"
+      },
+      {
+        "id": "5",
+        "question": "which is the best country",
+        "optionA": "India",
+        "optionB": "China",
+        "optionC": "America",
+        "optionD": "Greece"
+      }
+    ]
+  }

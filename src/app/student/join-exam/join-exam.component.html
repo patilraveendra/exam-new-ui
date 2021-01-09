@@ -1,0 +1,46 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Join Exam'" [icon]="'fa-book'"></app-page-header>
+    <div class="row">
+        <div class="col col-sm-12">
+            <div class="card mb-12">
+                <div class="card-header">
+                    Join Exam
+                </div>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <mat-form-field>
+                                <input matInput placeholder="Exam Id" formControlName="examId" required>
+                                <mat-error *ngIf="isFieldInvalid('examId')">
+                                    Please enter your exam id.
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+
+                            <mat-form-field class="full-width-input">
+                                <input matInput placeholder="Your Name" formControlName="name" required>
+                                <mat-error *ngIf="isFieldInvalid('name')">
+                                    Please enter your name.
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="form-group">
+                            <button class="btn btn-primary" color="primary" type="submit">Join Exam</button>
+
+                            <button class="btn btn-secondary" type="submit">Cancel</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

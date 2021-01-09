@@ -1,0 +1,65 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Create Exam'" [icon]="'fa-book'"></app-page-header>
+    <div class="row">
+        <div class="col col-sm-12">
+            <div class="card mb-12">
+                <div class="card-header">
+                    Create Exam
+                </div>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="input-group datepicker-input " style="padding-top: 37px;padding-bottom: 10px;">
+                                
+                                    <input formControlName="examDate" #d="ngbDatepicker" class="form-control" name="dp"
+                                        ngbDatepicker placeholder="yyyy-mm-dd" />
+                                    <button (click)="d.toggle()" class="input-group-addon" type="button">
+                                        <span class="fa fa-calendar"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6  changeSize" >
+                                <ngb-timepicker  formControlName="examTime"></ngb-timepicker>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Exam Code</mat-label>
+                                <input matInput placeholder="Ex. R001" formControlName="examCode">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Exam Description</mat-label>
+                                <textarea matInput placeholder="Exam for Thrid year..."
+                                    formControlName="examDescription"></textarea>
+                            </mat-form-field>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <mat-slide-toggle class="example-margin" formControlName="isExamActive" ngDefaultControl>
+                                Is Active
+                            </mat-slide-toggle>
+                        </div>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="form-group">
+                            <button class="btn btn-primary" color="primary" type="submit">Create Exam</button>
+
+                            <button class="btn btn-secondary" type="submit">Cancel</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

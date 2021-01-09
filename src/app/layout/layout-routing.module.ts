@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { JoinExamPasswordComponent } from '../student/join-exam-password/join-exam-password.component';
 import { JoinExamComponent } from '../student/join-exam/join-exam.component';
 import { QuestionAnswerComponent } from '../student/question-answer/question-answer.component';
+import { CreateExamComponent } from '../teacher/create-exam/create-exam.component';
 import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
             { path: 'join-exam-password', component: JoinExamPasswordComponent },
             { path: 'exam-question-answer', component: QuestionAnswerComponent },
 
-            
+            { path: 'create-exam', component: CreateExamComponent },
+
             
             { path: 'charts', loadChildren: () => import('./charts/charts.module').then((m) => m.ChartsModule) },
             { path: 'tables', loadChildren: () => import('./tables/tables.module').then((m) => m.TablesModule) },

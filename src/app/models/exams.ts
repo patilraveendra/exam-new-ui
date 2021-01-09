@@ -1,5 +1,8 @@
 export class Exam {
-    isValid:boolean;
-    examId:string;
-    examDate:string;
+    isActive: boolean;
+    examId: Number;
+    examDate: string;
+    examCode: string;
+    examDescription: string;
+    examTime: string;
 }

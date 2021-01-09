@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,7 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +21,14 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
 import { JoinExamComponent } from './student/join-exam/join-exam.component';
 import { JoinExamPasswordComponent } from './student/join-exam-password/join-exam-password.component';
 import { QuestionAnswerComponent } from './student/question-answer/question-answer.component';
+import { CreateExamComponent } from './teacher/create-exam/create-exam.component';
+import { CreateExamQuestionAddComponent } from './teacher/create-exam-question-add/create-exam-question-add.component';
+import { CreateExamQuestionListComponent } from './teacher/create-exam-question-list/create-exam-question-list.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
     imports: [
@@ -47,13 +54,17 @@ import { QuestionAnswerComponent } from './student/question-answer/question-answ
         MatCardModule,
         MatInputModule,
         MatFormFieldModule,
+        MatSlideToggleModule,
         MatButtonModule,
         HttpClientModule,
         MatRadioModule,
         FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        NgbModule
     ],
-    declarations: [AppComponent, JoinExamComponent, JoinExamPasswordComponent, QuestionAnswerComponent],
-    providers: [AuthGuard],
+    declarations: [AppComponent, JoinExamComponent, JoinExamPasswordComponent, QuestionAnswerComponent, CreateExamComponent, CreateExamQuestionAddComponent, CreateExamQuestionListComponent],
+    providers: [AuthGuard, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

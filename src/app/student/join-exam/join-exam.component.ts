@@ -48,7 +48,7 @@ export class JoinExamComponent implements OnInit {
         localStorage.getItem('studentid'))
         .subscribe(
           (exam: Exam) => {
-            localStorage.setItem('examid', exam.examId);
+            localStorage.setItem('examid', exam.examId.toString());
             this.router.navigate(['/join-exam-password']);
           });
     }

@@ -5,4 +5,5 @@ export class Exam {
     examCode: string;
     examDescription: string;
     examTime: string;
+    examEndTime: string;
 }

@@ -9,9 +9,10 @@
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <div class="input-group datepicker-input " style="padding-top: 37px;padding-bottom: 10px;">
-                                
+                            <div class="col-sm-4">
+                                <div class="input-group datepicker-input "
+                                    style="padding-top: 42px;padding-bottom: 10px;">
+
                                     <input formControlName="examDate" #d="ngbDatepicker" class="form-control" name="dp"
                                         ngbDatepicker placeholder="yyyy-mm-dd" />
                                     <button (click)="d.toggle()" class="input-group-addon" type="button">
@@ -19,8 +20,12 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-sm-6  changeSize" >
-                                <ngb-timepicker  formControlName="examTime"></ngb-timepicker>
+                            <div class="col-sm-4  changeSize">
+                                <ngb-timepicker formControlName="examTime"></ngb-timepicker>
+                            </div>
+
+                            <div class="col-sm-4 changeSize">
+                                <ngb-timepicker formControlName="examEndTime"></ngb-timepicker>
                             </div>
                         </div>
                         <div class="form-group">

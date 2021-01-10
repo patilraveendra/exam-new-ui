@@ -35,7 +35,9 @@ export class CreateExamComponent implements OnInit {
       examDescription: '',
       isExamActive: '',
       examDate: '',
-      examTime: ''
+      examTime: '',
+      examEndTime: ''
+
     });
   }
 
@@ -47,6 +49,8 @@ export class CreateExamComponent implements OnInit {
     this.newExam.examCode = this.form.controls["examCode"].value;
     this.newExam.examDate = this.form.controls["examDate"].value;
     this.newExam.examTime = this.form.controls["examTime"].value;
+    this.newExam.examEndTime = this.form.controls["examEndTime"].value;
+
 
     console.log('we will now create one exam');
 

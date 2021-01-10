@@ -35,6 +35,7 @@ export class ExamService {
     };
 
     let _missionAnnouncedSource: Exam = new Exam();
+    _missionAnnouncedSource.examId =  parseInt(examId);
     return of(_missionAnnouncedSource);
 
     // return this.http.post<Exam>('https://localhost:44390/api/exam/joinexam', JSON.stringify(body), httpOptions);
@@ -50,29 +51,31 @@ export class ExamService {
     };
 
     let _missionAnnouncedSource: Exam = new Exam();
+    _missionAnnouncedSource.examId =  parseInt(examId);
+
     return of(_missionAnnouncedSource);
 
     // return this.http.post<Exam>('https://localhost:44390/api/exam/startexam', JSON.stringify(body), httpOptions);
   }
 
 
-  createExam(exam:Exam): Observable<Exam> {
+  createExam(exam: Exam): Observable<Exam> {
     console.log('starting startExam service');
     let body = {
       examCode: exam.examCode,
       examDescription: exam.examDescription,
-      examActive:exam.isActive
+      examActive: exam.isActive
     };
 
     let _missionAnnouncedSource: Exam = new Exam();
-    _missionAnnouncedSource=exam;
-    _missionAnnouncedSource.examId=674;
+    _missionAnnouncedSource = exam;
+    _missionAnnouncedSource.examId = 674;
     return of(_missionAnnouncedSource);
 
     // return this.http.post<Exam>('https://localhost:44390/api/exam/startexam', JSON.stringify(body), httpOptions);
   }
- 
+
   getExamQuestions(examId: string): Observable<any[]> {
-     return this.http.get<Questions[]>('https://localhost:44390/api/exam/question/1');
+    return this.http.get<Questions[]>('https://localhost:44390/api/exam/question/1');
   }
 }

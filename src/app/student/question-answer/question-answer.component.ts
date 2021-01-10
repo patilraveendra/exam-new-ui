@@ -15,9 +15,11 @@ import { questions } from '../../shared/jsondata/question.json';
 })
 export class QuestionAnswerComponent implements OnInit {
   questionSet: Questions[];
+  studentAnswers: Questions[]=[];
   currentQuestion: Questions;
   currentIndex: number;
   selectedAnswer: string;
+  lastQuestion: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -47,11 +49,25 @@ export class QuestionAnswerComponent implements OnInit {
   }
 
   onNext() {
-    this.selectedAnswer=null;
+    console.log('answers');
+    console.log(this.currentQuestion);
+    console.log(this.selectedAnswer);
+
+    let answer: Questions = this.currentQuestion;
+    answer.selectedOption = this.selectedAnswer;
+    this.studentAnswers.push(answer);
+
+    this.selectedAnswer = null;
     if (this.currentIndex <= this.questionSet.length) {
       this.currentIndex = this.currentIndex + 1;
       this.currentQuestion = this.questionSet[this.currentIndex];
+      if (this.currentIndex == this.questionSet.length) {
+        this.lastQuestion = true;
+        console.log('whole answers');
+        console.log(this.studentAnswers);
+      }
     }
+
   }
 
 }

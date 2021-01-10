@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col col-sm-12">
+        <div class="card mb-12">
+            <div *ngIf="!answerSubmitted">
+                <div class="card-header">
+                    Please review your answers
+                </div>
+
+                <div class="card-body">
+                    <div *ngIf="studentAnswers">
+                        <div class="card-body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Question</th>
+                                        <th>Option A</th>
+                                        <th>Option B</th>
+                                        <th>Option C</th>
+                                        <th>Option D</th>
+
+                                        <th>Selected Answer</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let answer of studentAnswers;let i=index"
+                                        [ngSwitch]="answer.selectedOption">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td> {{answer.question}}</td>
+                                        <td> {{answer.optionA}}</td>
+                                        <td> {{answer.optionB}}</td>
+                                        <td> {{answer.optionC}}</td>
+                                        <td> {{answer.optionD}}</td>
+
+                                        <td *ngSwitchCase="1"> {{answer.optionA}}</td>
+                                        <td *ngSwitchCase="2"> {{answer.optionB}}</td>
+                                        <td *ngSwitchCase="3"> {{answer.optionC}}</td>
+                                        <td *ngSwitchCase="4"> {{answer.optionD}}</td>
+                                        <td>Edit</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="form-group">
+                        <button class="btn btn-primary" (click)="submitAnswer()" color="primary"
+                            type="submit">Submit</button>
+
+                        <button class="btn btn-secondary" type="submit">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+            <div *ngIf="answerSubmitted">
+                <app-see-result [studentAnswers]="studentAnswers"> </app-see-result>
+
+            </div>
+        </div>
+    </div>
+</div>

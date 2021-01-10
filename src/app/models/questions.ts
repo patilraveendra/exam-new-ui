@@ -7,6 +7,6 @@ export interface Questions {
     optionB: string;
     optionC: string;
     optionD: string;
-    // selectedOption: string;
-    // rightOption: string;
+    selectedOption: string;
+    rightOption: string;
 }

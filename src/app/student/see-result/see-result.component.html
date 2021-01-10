@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col col-sm-12" *ngIf="studentAnswers">
+        <div class="card mb-12">
+            <div class="card-header">
+                <h1> Your Results: You gave {{rightCount}} of {{studentAnswers.length}} right answers!!</h1>
+            </div>
+
+            <div class="card-body">
+                <div>
+                    <div class="card-body table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Question</th>
+                                    <!-- <th>Option A</th>
+                                    <th>Option B</th>
+                                    <th>Option C</th>
+                                    <th>Option D</th> -->
+
+                                    <th>Selected Answer</th>
+                                    <th>Right Answer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let answer of studentAnswers;let i=index"
+                                    [ngSwitch]="answer.selectedOption">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td> {{answer.question}}</td>
+                                    <!-- <td> {{answer.optionA}}</td>
+                                    <td> {{answer.optionB}}</td>
+                                    <td> {{answer.optionC}}</td>
+                                    <td> {{answer.optionD}}</td> -->
+
+                                    <td *ngSwitchCase="1"> {{answer.optionA}}</td>
+                                    <td *ngSwitchCase="2"> {{answer.optionB}}</td>
+                                    <td *ngSwitchCase="3"> {{answer.optionC}}</td>
+                                    <td *ngSwitchCase="4"> {{answer.optionD}}</td>
+
+                                    <td *ngIf="answer.rightOption==1">{{answer.optionA}}</td>
+                                    <td *ngIf="answer.rightOption==2">{{answer.optionB}}</td>
+                                    <td *ngIf="answer.rightOption==3">{{answer.optionC}}</td>
+                                    <td *ngIf="answer.rightOption==4">{{answer.optionD}}</td>
+
+                                    <td *ngIf="answer.rightOption===answer.selectedOption">
+                                        <p class="fa fa-check" style="color: darkgreen;"></p>
+                                    </td>
+
+                                    <td *ngIf="answer.rightOption!=answer.selectedOption">
+                                        <p class="fa fa-times" style="color: darkred;"></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

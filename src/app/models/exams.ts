@@ -1,6 +1,6 @@
 export class Exam {
     isActive: boolean;
-    examId: Number;
+    examId: number;
     examDate: string;
     examCode: string;
     examDescription: string;

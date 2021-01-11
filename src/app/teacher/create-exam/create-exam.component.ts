@@ -60,6 +60,7 @@ export class CreateExamComponent implements OnInit {
       this.examId = data.examId;
       console.log('exam created');
       console.log(this.examId);
+      this.router.navigateByUrl('/create-exam-question', { state: this.newExam });
     });
 
   }

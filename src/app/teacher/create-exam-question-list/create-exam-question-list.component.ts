@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Questions } from '../../models/questions';
 
 @Component({
   selector: 'app-create-exam-question-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-exam-question-list.component.css']
 })
 export class CreateExamQuestionListComponent implements OnInit {
+
+  @Input() questions:Questions;
 
   constructor() { }
 

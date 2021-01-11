@@ -30,6 +30,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReviewAnswersComponent } from './student/review-answers/review-answers.component';
 import { SeeResultComponent } from './student/see-result/see-result.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { SeeResultComponent } from './student/see-result/see-result.component';
         FormsModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        NgbModule
+        NgbModule,
+        MatSelectModule
     ],
     declarations: [AppComponent, JoinExamComponent, JoinExamPasswordComponent, QuestionAnswerComponent, CreateExamComponent, CreateExamQuestionAddComponent, CreateExamQuestionListComponent, ReviewAnswersComponent, SeeResultComponent],
     providers: [AuthGuard, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],

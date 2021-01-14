@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomNotificationComponent } from '../admin/custom-notification/custom-notification.component';
 import { JoinExamPasswordComponent } from '../student/join-exam-password/join-exam-password.component';
 import { JoinExamComponent } from '../student/join-exam/join-exam.component';
 import { QuestionAnswerComponent } from '../student/question-answer/question-answer.component';
 import { CreateExamQuestionAddComponent } from '../teacher/create-exam-question-add/create-exam-question-add.component';
 import { CreateExamComponent } from '../teacher/create-exam/create-exam.component';
+import { NotificationComponent } from './dashboard/components';
 import { LayoutComponent } from './layout.component';
+
 
 const routes: Routes = [
     {
@@ -22,6 +25,7 @@ const routes: Routes = [
             { path: 'exam-question-answer', component: QuestionAnswerComponent },
             { path: 'create-exam', component: CreateExamComponent },
             { path: 'create-exam-question', component: CreateExamQuestionAddComponent },
+            { path: 'custom-notification', component: CustomNotificationComponent }
         ]
     }
 ];

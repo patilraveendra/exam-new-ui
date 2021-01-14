@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Exam } from 'src/app/models/exams';
+import { Exam } from '../../models/exams';
 import { Questions } from '../../models/questions';
 import { routerTransition } from '../../router.animations';
 import { ExamService } from '../../shared/services/exam.service';

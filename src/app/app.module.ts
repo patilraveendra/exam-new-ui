@@ -31,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReviewAnswersComponent } from './student/review-answers/review-answers.component';
 import { SeeResultComponent } from './student/see-result/see-result.component';
 import { MatSelectModule } from '@angular/material/select';
+import { CustomNotificationComponent } from './admin/custom-notification/custom-notification.component';
 
 
 @NgModule({
@@ -67,7 +68,10 @@ import { MatSelectModule } from '@angular/material/select';
         NgbModule,
         MatSelectModule
     ],
-    declarations: [AppComponent, JoinExamComponent, JoinExamPasswordComponent, QuestionAnswerComponent, CreateExamComponent, CreateExamQuestionAddComponent, CreateExamQuestionListComponent, ReviewAnswersComponent, SeeResultComponent],
+    declarations: [AppComponent, JoinExamComponent, JoinExamPasswordComponent,
+         QuestionAnswerComponent, CreateExamComponent, CreateExamQuestionAddComponent, 
+         CreateExamQuestionListComponent, ReviewAnswersComponent, SeeResultComponent, CustomNotificationComponent
+          ],
     providers: [AuthGuard, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
     bootstrap: [AppComponent]
 })

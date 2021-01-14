@@ -23,6 +23,11 @@
                 <i class="fa fa-fw fa-book"></i>&nbsp;
                 <span>{{ 'Create exam'}}</span>
             </a>
+
+            <a [routerLinkActive]="['router-link-active']" [routerLink]="['/custom-notification']" class="list-group-item">
+                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <span>{{ 'Create notifications'}}</span>
+            </a>
         </div>
     </div>
     <div (click)="toggleCollapsed()" [ngClass]="{ collapsed: collapsed }" class="toggle-button">

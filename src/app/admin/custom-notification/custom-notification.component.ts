@@ -7,6 +7,7 @@ import { ExamService } from '../../shared/services/exam.service';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { CustomNotification } from '../../models/notification';
+import { CustomNotificationService } from '../../shared/services/custom-notification.service';
 
 
 
@@ -21,7 +22,7 @@ export class CustomNotificationComponent implements OnInit {
 
   // raveendra is an object of datatype customnotification
   // customnitifcation is a class 
-  notification: CustomNotification = new CustomNotification();
+  
 
   form: any;
 
@@ -31,7 +32,7 @@ export class CustomNotificationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private examservice: ExamService,
+    private notificationService: CustomNotificationService,
     private router: Router,
   ) {
     this.form = this.formBuilder.group({
@@ -45,15 +46,18 @@ export class CustomNotificationComponent implements OnInit {
   }
 
   onSubmit() {
+    let notification: CustomNotification = new CustomNotification();
+    notification.description = this.form.controls["notificationDescription"].value;
+    notification.address = this.form.controls["textBox4"].value;
 
-    this.notification.description = this.form.controls["notificationDescription"].value;
-    this.notification.address = this.form.controls["textBox4"].value;
 
     console.log('single object');
-    console.log(this.notification);
+    console.log(notification);
 
+    this.notificationService.addNotification(notification);
+    
     this.form.reset();
-    this.notifications.push(this.notification);
+    this.notifications.push(notification);
 
     console.log('array of notification');
 

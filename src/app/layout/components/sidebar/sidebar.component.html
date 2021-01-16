@@ -24,12 +24,16 @@
                 <span>{{ 'Create exam'}}</span>
             </a>
 
-            <a [routerLinkActive]="['router-link-active']" [routerLink]="['/custom-notification']" class="list-group-item">
+
+        </div>
+        <div *ngIf="isAdmin$ | async as isAdmin"> <a [routerLinkActive]="['router-link-active']"
+                [routerLink]="['/custom-notification']" class="list-group-item">
                 <i class="fa fa-fw fa-book"></i>&nbsp;
                 <span>{{ 'Create notifications'}}</span>
-            </a>
-        </div>
+            </a></div>
+
     </div>
+
     <div (click)="toggleCollapsed()" [ngClass]="{ collapsed: collapsed }" class="toggle-button">
         <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i>&nbsp;
         <span>{{ 'Collapse Sidebar' | translate }}</span>

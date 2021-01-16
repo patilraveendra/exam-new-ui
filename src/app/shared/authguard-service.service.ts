@@ -11,6 +11,7 @@ export class AuthguardServiceService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private isTeacher: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private isStudent: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private isAdmin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
 
   get isLoggedIn() {
@@ -24,6 +25,9 @@ export class AuthguardServiceService {
   get isTeacherRole() {
     return this.isTeacher.asObservable();
   }
+  get isAdminRole() {
+    return this.isAdmin.asObservable();
+  }
 
   constructor(
     private router: Router
@@ -34,11 +38,16 @@ export class AuthguardServiceService {
     console.log('auth guard login function called');
     if (user.userName !== '' && user.password !== '') {
 
+      // this.authservice.checkusername(user.username, user.password)
+      // in spring boot we will check if username and password are as saved in the database 
+      //if it matches we will return true and role from spring boot 
+
       if (user.userName === 'student' && user.password === 'student') {
         localStorage.setItem('studentid', '35');
         this.loggedIn.next(true);
         this.isStudent.next(true);
         this.isTeacher.next(false);
+        this.isAdmin.next(false);
         console.log('login student');
       }
 
@@ -47,7 +56,16 @@ export class AuthguardServiceService {
         this.loggedIn.next(true);
         this.isTeacher.next(true);
         this.isStudent.next(false);
+        this.isAdmin.next(false);
         console.log('login teacher');
+      }
+      if (user.userName === 'admin' && user.password === 'admin') {
+        localStorage.setItem('adminid', '45');
+        this.loggedIn.next(true);
+        this.isTeacher.next(false);
+        this.isStudent.next(false);
+        this.isAdmin.next(true);
+        console.log('login admin');
       }
 
       this.router.navigate(['/dashboard']);

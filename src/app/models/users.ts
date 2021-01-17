@@ -1,11 +1,13 @@
 export enum Role {
     User = 'User',
-    Admin = 'Admin'
+    Admin = 'Admin',
+    Teacher='Teacher',
+    Student='Student'
   }
   
-  export interface User {
+  export class User {
       userName: string;
       password: string;
-      role: Role;
+      role: string;
       token?: string;
     }

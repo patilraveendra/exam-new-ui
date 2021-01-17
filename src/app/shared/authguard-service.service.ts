@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/users';
+import { AuthServiceService } from './auth-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,8 @@ export class AuthguardServiceService {
   }
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authservice:AuthServiceService
   ) { }
 
   login(user: User) {
@@ -38,7 +40,10 @@ export class AuthguardServiceService {
     console.log('auth guard login function called');
     if (user.userName !== '' && user.password !== '') {
 
-      // this.authservice.checkusername(user.username, user.password)
+     this.authservice.checkUserName(user).subscribe(data => {
+      console.log("user validated");
+      console.log(data);
+     });
       // in spring boot we will check if username and password are as saved in the database 
       //if it matches we will return true and role from spring boot 
 

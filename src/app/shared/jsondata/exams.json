@@ -1,0 +1,31 @@
+{
+    "exams": [
+      {
+        "examId": "1",
+        "examDescription": "RAveendra Exam",
+        "examDate": "23/12/2020",
+        "examTime": "11:30",
+        "examEndTime": "12:30",
+        "isActive": true,
+        "examCode": "SDF"
+      },
+      {
+        "examId": "2",
+        "examDescription": "Bala Exam",
+        "examDate": "23/12/2021",
+        "examTime": "11:30",
+        "examEndTime": "12:30",
+        "isActive": true,
+        "examCode": "SDF"
+      },
+      {
+        "examId": "3",
+        "examDescription": "Shubham Exam",
+        "examDate": "23/12/2022",
+        "examTime": "11:30",
+        "examEndTime": "12:30",
+        "isActive": true,
+        "examCode": "SDF"
+      } 
+    ]
+  }

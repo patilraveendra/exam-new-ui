@@ -24,6 +24,10 @@
                 <span>{{ 'Create exam'}}</span>
             </a>
 
+            <a [routerLinkActive]="['router-link-active']" [routerLink]="['/exam-list']" class="list-group-item">
+                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <span>{{'Exams'}}</span>
+            </a>
 
         </div>
         <div *ngIf="isAdmin$ | async as isAdmin"> <a [routerLinkActive]="['router-link-active']"

@@ -41,6 +41,9 @@ export class ExamService {
     // return this.http.post<Exam>('https://localhost:44390/api/exam/joinexam', JSON.stringify(body), httpOptions);
   }
 
+  getExams(): Observable<any[]> {
+    return this.http.get<Exam[]>('https://localhost:44390/api/exam/question/1');
+  }
 
   startExam(examId: string, password: string, studentId: string): Observable<Exam> {
     console.log('starting startExam service');

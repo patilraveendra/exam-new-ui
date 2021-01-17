@@ -15,7 +15,7 @@ import { questions } from '../../shared/jsondata/question.json';
 })
 export class QuestionAnswerComponent implements OnInit {
   questionSet: Questions[];
-  studentAnswers: Questions[]=[];
+  studentAnswers: Questions[] = [];
   currentQuestion: Questions;
   currentIndex: number;
   selectedAnswer: string;
@@ -34,18 +34,18 @@ export class QuestionAnswerComponent implements OnInit {
   getQuestionData(examId: string) {
 
     console.log('hard coded');
-    this.questionSet = JSON.parse(JSON.stringify(questions));
-    this.currentQuestion = this.questionSet[0];
-    this.currentIndex = 0;
+    // this.questionSet = JSON.parse(JSON.stringify(questions));
+    // this.currentQuestion = this.questionSet[0];
+    // this.currentIndex = 0;
 
-    // this.examservice.getExamQuestions(examId).subscribe(
-    //   (questions: Questions[]) => {
-    //     this.questionSet = questions;
-    //     this.currentQuestion = questions[0];
-    //     this.currentIndex = 0;
-    //     console.log('questions');
-    //     console.log(this.questions);
-    //   });
+    this.examservice.getExamQuestions(examId).subscribe(
+      (questions: Questions[]) => {
+        this.questionSet = questions;
+        this.currentQuestion = questions[0];
+        this.currentIndex = 0;
+        console.log('questions');
+        console.log(this.questionSet);
+      });
   }
 
   onNext() {
@@ -67,7 +67,5 @@ export class QuestionAnswerComponent implements OnInit {
         console.log(this.studentAnswers);
       }
     }
-
   }
-
 }

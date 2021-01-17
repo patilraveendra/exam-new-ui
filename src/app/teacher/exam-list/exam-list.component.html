@@ -1,0 +1,49 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Create Exam'" [icon]="'fa-book'"></app-page-header>
+    <div class="row">
+        <div class="col col-sm-12">
+            <div class="card mb-12">
+                <div class="card-header">
+                    Exam List
+                </div>
+
+                <div class="card-body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Exam Id</th>
+                                <th>Description</th>
+                                <th>Exam Code</th>
+                                <th>Date</th>
+                                <th>Starts From</th>
+                                <th>Ends At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let exam of exams;let i=index">
+                                <th scope="row">{{i+1}}</th>
+                                <td> {{exam.examId}}</td>
+                                <td> {{exam.examCode}}</td>
+                                <td> {{exam.examDescription}}</td>
+                                <td> {{exam.examDate}}</td>
+                                <td> {{exam.examTime}}</td>
+                                <td> {{exam.examEndTime}}</td>
+
+                                <td>Edit</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div class="card-footer">
+                    <div class="form-group">
+                        <button class="btn btn-primary" color="primary" type="submit">Create Exam</button>
+                        <button class="btn btn-secondary" type="submit">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

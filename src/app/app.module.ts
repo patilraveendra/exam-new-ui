@@ -32,6 +32,8 @@ import { ReviewAnswersComponent } from './student/review-answers/review-answers.
 import { SeeResultComponent } from './student/see-result/see-result.component';
 import { MatSelectModule } from '@angular/material/select';
 import { CustomNotificationComponent } from './admin/custom-notification/custom-notification.component';
+import { ExamListComponent } from './teacher/exam-list/exam-list.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -66,11 +68,12 @@ import { CustomNotificationComponent } from './admin/custom-notification/custom-
         MatDatepickerModule,
         MatNativeDateModule,
         NgbModule,
-        MatSelectModule
+        MatSelectModule,
+        MatTableModule,
     ],
     declarations: [AppComponent, JoinExamComponent, JoinExamPasswordComponent,
          QuestionAnswerComponent, CreateExamComponent, CreateExamQuestionAddComponent, 
-         CreateExamQuestionListComponent, ReviewAnswersComponent, SeeResultComponent, CustomNotificationComponent
+         CreateExamQuestionListComponent, ReviewAnswersComponent, SeeResultComponent, CustomNotificationComponent, ExamListComponent
           ],
     providers: [AuthGuard, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
     bootstrap: [AppComponent]

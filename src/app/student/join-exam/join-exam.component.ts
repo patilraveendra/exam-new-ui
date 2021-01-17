@@ -25,7 +25,7 @@ export class JoinExamComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      examId: ['', Validators.required],
+      examCode: ['', Validators.required],
       name: ['', Validators.required]
     });
   }
@@ -43,7 +43,7 @@ export class JoinExamComponent implements OnInit {
     if (this.form.valid) {
       console.log('call exam service');
 
-      this.examservice.joinExam(this.form.get('examId').value,
+      this.examservice.joinExam(this.form.get('examCode').value,
         this.form.get('name').value,
         localStorage.getItem('studentid'))
         .subscribe(

@@ -19,18 +19,19 @@ export class AuthServiceService {
 
   }
 
-  checkUserName(user: User): Observable<User> {
+  checkUserName(user: User): Observable<any> {
     let body = {
-      username: user.userName,
+      userId: user.userName,
       password: user.password
     };
 
-    let _missionAnnouncedSource: User = new User();
-    _missionAnnouncedSource = user;
-    _missionAnnouncedSource.role = "teacher";
-    return of(_missionAnnouncedSource);
+    // let _missionAnnouncedSource: User = new User();
+    // _missionAnnouncedSource = user;
+    // _missionAnnouncedSource.role = "teacher";
+    // return of(_missionAnnouncedSource);
 
-    // return this.http.post<User>('https://localhost:44390/api/rack', JSON.stringify(body), httpOptions);
+    
+     return this.http.post<any>('http://localhost:9494/api/v1/authenticateUser', JSON.stringify(body), httpOptions);
 
   };
 }

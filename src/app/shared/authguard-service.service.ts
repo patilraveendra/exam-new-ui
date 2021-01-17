@@ -32,7 +32,7 @@ export class AuthguardServiceService {
 
   constructor(
     private router: Router,
-    private authservice:AuthServiceService
+    private authservice: AuthServiceService
   ) { }
 
   login(user: User) {
@@ -40,42 +40,46 @@ export class AuthguardServiceService {
     console.log('auth guard login function called');
     if (user.userName !== '' && user.password !== '') {
 
-     this.authservice.checkUserName(user).subscribe(data => {
-      console.log("user validated");
-      console.log(data);
-     });
-      // in spring boot we will check if username and password are as saved in the database 
-      //if it matches we will return true and role from spring boot 
+      this.authservice.checkUserName(user).subscribe(data => {
+        console.log("user validated");
+        console.log(data);
+        console.log(data.id);
+        console.log(data.role);
+        this.setUserFields(data);
+        this.router.navigate(['/dashboard']);
+      });
 
-      if (user.userName === 'student' && user.password === 'student') {
-        localStorage.setItem('studentid', '35');
-        this.loggedIn.next(true);
-        this.isStudent.next(true);
-        this.isTeacher.next(false);
-        this.isAdmin.next(false);
-        console.log('login student');
-      }
-
-      if (user.userName === 'teacher' && user.password === 'teacher') {
-        localStorage.setItem('teacherid', '85');
-        this.loggedIn.next(true);
-        this.isTeacher.next(true);
-        this.isStudent.next(false);
-        this.isAdmin.next(false);
-        console.log('login teacher');
-      }
-      if (user.userName === 'admin' && user.password === 'admin') {
-        localStorage.setItem('adminid', '45');
-        this.loggedIn.next(true);
-        this.isTeacher.next(false);
-        this.isStudent.next(false);
-        this.isAdmin.next(true);
-        console.log('login admin');
-      }
-
-      this.router.navigate(['/dashboard']);
     }
   }
+
+  setUserFields(loggedInuser: any) {
+    if (loggedInuser.role == 'student') {
+      localStorage.setItem('studentid', loggedInuser.id);
+      this.loggedIn.next(true);
+      this.isStudent.next(true);
+      this.isTeacher.next(false);
+      this.isAdmin.next(false);
+      console.log('login student');
+    }
+
+    if (loggedInuser.role == 'teacher') {
+      localStorage.setItem('teacherid', loggedInuser.id);
+      this.loggedIn.next(true);
+      this.isTeacher.next(true);
+      this.isStudent.next(false);
+      this.isAdmin.next(false);
+      console.log('login teacher');
+    }
+    if (loggedInuser.role == 'admin') {
+      localStorage.setItem('adminid', loggedInuser.id);
+      this.loggedIn.next(true);
+      this.isTeacher.next(false);
+      this.isStudent.next(false);
+      this.isAdmin.next(true);
+      console.log('login admin');
+    }
+  }
+
 
   logout() {
     this.loggedIn.next(false);

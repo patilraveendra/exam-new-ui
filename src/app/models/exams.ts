@@ -6,4 +6,6 @@ export class Exam {
     examDescription: string;
     examTime: string;
     examEndTime: string;
+    examPassword:string;
+    isPasswordValid:string;
 }

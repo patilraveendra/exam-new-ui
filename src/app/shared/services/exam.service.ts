@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { AppSettings } from '../../appsettings';
+import { StudentExam } from '../../models/studentExam';
 import { Exam } from '../../models/exams';
 import { Questions } from '../../models/questions';
 
@@ -34,33 +36,40 @@ export class ExamService {
       studentid: studentId
     };
 
-    let _missionAnnouncedSource: Exam = new Exam();
-    _missionAnnouncedSource.examId =  parseInt(examId);
-    return of(_missionAnnouncedSource);
-
-    // return this.http.post<Exam>('https://localhost:44390/api/exam/joinexam', JSON.stringify(body), httpOptions);
+    return this.http.post<Exam>(AppSettings.API_ENDPOINT + 'joinexam', JSON.stringify(body), httpOptions);
   }
 
   getExams(): Observable<any[]> {
     return this.http.get<Exam[]>('https://localhost:44390/api/exam/question/1');
   }
 
-  startExam(examId: string, password: string, studentId: string): Observable<Exam> {
-    console.log('starting startExam service');
+  checkExamPassword(examId: string, password: string): Observable<Exam> {
+    console.log('starting check Exam service');
     let body = {
-      examid: examId,
-      password: password,
-      studentid: studentId
+      examId: examId,
+      examPassword: password
     };
 
-    let _missionAnnouncedSource: Exam = new Exam();
-    _missionAnnouncedSource.examId =  parseInt(examId);
+    // let _missionAnnouncedSource: Exam = new Exam();
+    // _missionAnnouncedSource.examId = parseInt(examId);
+    // return of(_missionAnnouncedSource);
 
-    return of(_missionAnnouncedSource);
-
-    // return this.http.post<Exam>('https://localhost:44390/api/exam/startexam', JSON.stringify(body), httpOptions);
+    return this.http.post<Exam>(AppSettings.API_ENDPOINT + 'checkExamPassword', JSON.stringify(body), httpOptions);
   }
 
+  startExam(examId: string, studentid: string): Observable<StudentExam> {
+    console.log('starting start Exam service');
+    let body = {
+      examId: examId,
+      studentId: studentid
+    };
+
+    // let _missionAnnouncedSource: Exam = new Exam();
+    // _missionAnnouncedSource.examId = parseInt(examId);
+    // return of(_missionAnnouncedSource);
+
+    return this.http.post<StudentExam>(AppSettings.API_ENDPOINT + 'startexam', JSON.stringify(body), httpOptions);
+  }
 
   createExam(exam: Exam): Observable<Exam> {
     console.log('starting startExam service');

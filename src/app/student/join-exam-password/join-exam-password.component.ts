@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Exam } from '../../models/exams';
 import { ExamService } from '../../shared/services/exam.service';
 import { routerTransition } from '../../router.animations';
+import { StudentExam } from '../../models/studentExam';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class JoinExamPasswordComponent implements OnInit {
 
   form: FormGroup;
   private formSubmitAttempt: boolean;
+  wrongPassword: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +27,7 @@ export class JoinExamPasswordComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      examPassword: ['', Validators.required] 
+      examPassword: ['', Validators.required]
     });
   }
 
@@ -40,18 +42,32 @@ export class JoinExamPasswordComponent implements OnInit {
     if (this.form.valid) {
       console.log('call exam service with password');
 
-      this.examservice.startExam(localStorage.getItem('examid'),
-        this.form.get('examPassword').value,
-        localStorage.getItem('studentid'),
+      this.examservice.checkExamPassword(localStorage.getItem('examid'),
+        this.form.get('examPassword').value
       )
         .subscribe(
           (exam: Exam) => {
-            this.router.navigate(['/exam-question-answer']);
+            if (exam.isPasswordValid) {
+              console.log('exam password is right');
+             this.startExam();
+            } else {
+              this.wrongPassword = true;
+            }
+
           });
 
 
     }
     this.formSubmitAttempt = true;
+  }
+
+  startExam(){
+    this.examservice.startExam(localStorage.getItem('studentid'),localStorage.getItem('examid')).subscribe(
+      (studentExam: StudentExam) => {
+        console.log('entry made');
+        this.router.navigate(['/exam-question-answer']);
+      });
+
   }
 
 }

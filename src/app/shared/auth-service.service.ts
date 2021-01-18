@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { AppSettings } from '../appsettings';
 import { User } from '../models/users';
 
 
@@ -25,13 +26,7 @@ export class AuthServiceService {
       password: user.password
     };
 
-    // let _missionAnnouncedSource: User = new User();
-    // _missionAnnouncedSource = user;
-    // _missionAnnouncedSource.role = "teacher";
-    // return of(_missionAnnouncedSource);
-
-    
-     return this.http.post<any>('http://localhost:9494/api/v1/authenticateUser', JSON.stringify(body), httpOptions);
+    return this.http.post<any>(AppSettings.API_ENDPOINT + 'authenticateUser', JSON.stringify(body), httpOptions);
 
   };
 }

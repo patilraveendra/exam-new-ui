@@ -47,9 +47,12 @@ export class JoinExamPasswordComponent implements OnInit {
       )
         .subscribe(
           (exam: Exam) => {
-            if (exam.isPasswordValid) {
+            console.log('returned exam');
+            console.log(exam);
+            if (exam) {
+              exam.isPasswordValid = "Y";
               console.log('exam password is right');
-             this.startExam();
+              this.startExam();
             } else {
               this.wrongPassword = true;
             }
@@ -61,10 +64,10 @@ export class JoinExamPasswordComponent implements OnInit {
     this.formSubmitAttempt = true;
   }
 
-  startExam(){
-    this.examservice.startExam(localStorage.getItem('studentid'),localStorage.getItem('examid')).subscribe(
+  startExam() {
+    this.examservice.startExam(localStorage.getItem('examid'),localStorage.getItem('studentid')).subscribe(
       (studentExam: StudentExam) => {
-        console.log('entry made');
+        console.log('entry made in student exam table');
         this.router.navigate(['/exam-question-answer']);
       });
 

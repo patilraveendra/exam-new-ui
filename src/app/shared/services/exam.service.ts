@@ -28,12 +28,10 @@ export class ExamService {
   }
 
 
-  joinExam(examId: string, studentName: string, studentId: string): Observable<Exam> {
+  joinExam(examCode: string, studentName: string, studentId: string): Observable<Exam> {
     console.log('starting joinExam service');
     let body = {
-      examid: examId,
-      studentname: studentName,
-      studentid: studentId
+      examCode: examCode
     };
 
     return this.http.post<Exam>(AppSettings.API_ENDPOINT + 'joinexam', JSON.stringify(body), httpOptions);
@@ -44,7 +42,7 @@ export class ExamService {
   }
 
   checkExamPassword(examId: string, password: string): Observable<Exam> {
-    console.log('starting check Exam service');
+    console.log('starting check password Exam service');
     let body = {
       examId: examId,
       examPassword: password
@@ -60,8 +58,8 @@ export class ExamService {
   startExam(examId: string, studentid: string): Observable<StudentExam> {
     console.log('starting start Exam service');
     let body = {
-      examId: examId,
-      studentId: studentid
+      examid: examId,
+      studentid: studentid
     };
 
     // let _missionAnnouncedSource: Exam = new Exam();
@@ -88,6 +86,6 @@ export class ExamService {
   }
 
   getExamQuestions(examId: string): Observable<any[]> {
-    return this.http.get<Questions[]>('https://localhost:44390/api/exam/question/1');
+    return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'questions');
   }
 }

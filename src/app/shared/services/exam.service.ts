@@ -74,15 +74,27 @@ export class ExamService {
     let body = {
       examCode: exam.examCode,
       examDescription: exam.examDescription,
-      examActive: exam.isActive
+      examActive: exam.isActive,
+      examPassword: exam.examPassword,
     };
 
-    let _missionAnnouncedSource: Exam = new Exam();
-    _missionAnnouncedSource = exam;
-    _missionAnnouncedSource.examId = 674;
-    return of(_missionAnnouncedSource);
+    return this.http.post<Exam>(AppSettings.API_ENDPOINT + 'createexam', JSON.stringify(body), httpOptions);
+  }
 
-    // return this.http.post<Exam>('https://localhost:44390/api/exam/startexam', JSON.stringify(body), httpOptions);
+
+  createQuestion(question: Questions): Observable<Questions> {
+    console.log('starting startExam service');
+    let body = {
+      "question": question.question,
+      "optionA": question.optionA,
+      "optionB": question.optionB,
+      "optionC": question.optionC,
+      "optionD": question.optionD,
+      "rightOption": question.rightOption,
+      "examid": question.examId
+    };
+
+    return this.http.post<Questions>(AppSettings.API_ENDPOINT + 'createquestion', JSON.stringify(body), httpOptions);
   }
 
   getExamQuestions(examId: string): Observable<any[]> {

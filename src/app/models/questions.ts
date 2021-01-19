@@ -2,7 +2,7 @@ export interface Questions {
     //isValid: boolean;
     examId: number;
     question: string;
-    id: number;
+    id?: number;
     optionA: string;
     optionB: string;
     optionC: string;

@@ -36,8 +36,8 @@ export class CreateExamComponent implements OnInit {
       isExamActive: '',
       examDate: '',
       examTime: '',
-      examEndTime: ''
-
+      examEndTime: '',
+      examPassword: ''
     });
   }
 
@@ -50,6 +50,7 @@ export class CreateExamComponent implements OnInit {
     this.newExam.examDate = this.form.controls["examDate"].value;
     this.newExam.examTime = this.form.controls["examTime"].value;
     this.newExam.examEndTime = this.form.controls["examEndTime"].value;
+    this.newExam.examPassword = this.form.controls["examPassword"].value;
 
 
     console.log('we will now create one exam');
@@ -57,7 +58,9 @@ export class CreateExamComponent implements OnInit {
     console.log(this.newExam);
 
     this.examservice.createExam(this.newExam).subscribe(data => {
-      this.examId = data.examId;
+      this.examId = data.id;
+      this.newExam.examId = data.id;
+      this.newExam.id = data.id;
       console.log('exam created');
       console.log(this.examId);
       this.router.navigateByUrl('/create-exam-question', { state: this.newExam });

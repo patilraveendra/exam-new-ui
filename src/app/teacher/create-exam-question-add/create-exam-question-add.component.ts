@@ -37,13 +37,13 @@ export class CreateExamQuestionAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('exam loaded from route state');
     console.log(history.state);
     this.exam = history.state;
   }
 
   onSubmit() {
     let addedQuestion: Questions = {
-      id: 899,
       selectedOption: '',
       examId: this.exam.examId,
       question: this.form.controls["question"].value,
@@ -53,12 +53,15 @@ export class CreateExamQuestionAddComponent implements OnInit {
       optionD: this.form.controls["optionD"].value,
       rightOption: this.form.controls["rightOption"].value,
     }
-    console.log('added question');
-    console.log(addedQuestion);
 
-    this.questions.push(addedQuestion);
 
-    this.form.reset();
+    this.examservice.createQuestion(addedQuestion).subscribe(data => {
+      console.log('question created');
+      console.log(addedQuestion);
+      this.questions.push(addedQuestion);
+      this.form.reset();
+    });
+
 
   }
 

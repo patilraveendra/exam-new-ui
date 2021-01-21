@@ -34,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CustomNotificationComponent } from './admin/custom-notification/custom-notification.component';
 import { ExamListComponent } from './teacher/exam-list/exam-list.component';
 import { MatTableModule } from '@angular/material/table';
+//import { AdduserComponent } from './admin/adduser/adduser.component';
 
 
 @NgModule({

@@ -97,7 +97,32 @@ export class ExamService {
     return this.http.post<Questions>(AppSettings.API_ENDPOINT + 'createquestion', JSON.stringify(body), httpOptions);
   }
 
-  getExamQuestions(examId: string): Observable<any[]> {
-    return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'questions');
+
+  getExamQuestions(examId: string): Observable<Questions[]> {
+
+    let body = {
+      "examid": examId
+    };
+
+    return this.http.post<Questions[]>(AppSettings.API_ENDPOINT + 'questionsofexam', JSON.stringify(body), httpOptions);
   }
+
+  saveStudentsAnswer(question: Questions): Observable<Questions> {
+
+    console.log('saving student answer');
+
+    let body = {
+      "examid": localStorage.getItem('examid'),
+      "questionid": question.id,
+      "rightoption": question.rightOption,
+      "selectedoption": question.selectedOption,
+      "studentid": localStorage.getItem('studentid')
+    };
+
+    return this.http.post<Questions>(AppSettings.API_ENDPOINT + 'savequestionanswer', JSON.stringify(body), httpOptions);
+  }
+
+  // getExamQuestions(examId: string): Observable<any[]> {
+  //   return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'questionsofexam');
+  // }
 }

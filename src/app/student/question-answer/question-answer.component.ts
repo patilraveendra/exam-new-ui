@@ -28,44 +28,44 @@ export class QuestionAnswerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getQuestionData('examId');
+
+    this.getQuestionData(localStorage.getItem('examid'));
   }
 
   getQuestionData(examId: string) {
 
     console.log('hard coded');
-    // this.questionSet = JSON.parse(JSON.stringify(questions));
-    // this.currentQuestion = this.questionSet[0];
-    // this.currentIndex = 0;
 
     this.examservice.getExamQuestions(examId).subscribe(
       (questions: Questions[]) => {
         this.questionSet = questions;
         this.currentQuestion = questions[0];
         this.currentIndex = 0;
-        console.log('questions');
+        console.log('questions received from database');
         console.log(this.questionSet);
       });
+
   }
 
   onNext() {
-    console.log('answers');
-    console.log(this.currentQuestion);
-    console.log(this.selectedAnswer);
+    console.log('answers given by student');
+     
 
     let answer: Questions = this.currentQuestion;
     answer.selectedOption = this.selectedAnswer;
-    this.studentAnswers.push(answer);
 
-    this.selectedAnswer = null;
-    if (this.currentIndex <= this.questionSet.length) {
-      this.currentIndex = this.currentIndex + 1;
-      this.currentQuestion = this.questionSet[this.currentIndex];
-      if (this.currentIndex == this.questionSet.length) {
-        this.lastQuestion = true;
-        console.log('whole answers');
-        console.log(this.studentAnswers);
-      }
-    }
+    this.examservice.saveStudentsAnswer(answer).subscribe(
+      (questions: Questions) => {
+        this.studentAnswers.push(answer);
+
+        this.selectedAnswer = null;
+        if (this.currentIndex <= this.questionSet.length) {
+          this.currentIndex = this.currentIndex + 1;
+          this.currentQuestion = this.questionSet[this.currentIndex];
+          if (this.currentIndex == this.questionSet.length) {
+            this.lastQuestion = true;
+          }
+        }
+      });
   }
 }

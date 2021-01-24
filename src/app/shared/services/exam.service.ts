@@ -127,7 +127,7 @@ export class ExamService {
   // }
 
   getStudentAnswers(examId: number): Observable<any[]> {
-    return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'getallanswersofexambystudent/13');
+    return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'getallanswersofexambystudent/14');
   }
 
   

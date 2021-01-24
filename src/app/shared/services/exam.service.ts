@@ -122,6 +122,9 @@ export class ExamService {
     return this.http.post<Questions>(AppSettings.API_ENDPOINT + 'savequestionanswer', JSON.stringify(body), httpOptions);
   }
 
+
+  
+
   // getExamQuestions(examId: string): Observable<any[]> {
   //   return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'questionsofexam');
   // }

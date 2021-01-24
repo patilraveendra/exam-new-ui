@@ -15,12 +15,12 @@ export class DashboardComponent implements OnInit {
         this.sliders.push(
             {
                 imagePath: 'assets/images/slider1.jpg',
-                label: 'First slide label',
-                text: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+                label: 'Asadhya te sadhya karita sayas..karan abhyas',
+                text: 'saint tukaram .'
             },
             {
                 imagePath: 'assets/images/slider2.jpg',
-                label: 'Second slide label',
+                label: 'अधिक विषय',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
             },
             {

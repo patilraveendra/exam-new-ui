@@ -44,7 +44,7 @@ export class AuthguardServiceService {
         console.log("user validated");
         console.log(data);
         console.log(data.id);
-        console.log(data.role);
+        console.log(data.name);
         this.setUserFields(data);
         this.router.navigate(['/dashboard']);
       });
@@ -53,6 +53,9 @@ export class AuthguardServiceService {
   }
 
   setUserFields(loggedInuser: any) {
+
+    localStorage.setItem('username', loggedInuser.name);
+
     if (loggedInuser.role == 'student') {
       localStorage.setItem('studentid', loggedInuser.id);
       this.loggedIn.next(true);

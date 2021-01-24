@@ -10,5 +10,6 @@ export enum Role {
       password: string;
       role: string;
       token?: string;
+      name:string;
     }
   

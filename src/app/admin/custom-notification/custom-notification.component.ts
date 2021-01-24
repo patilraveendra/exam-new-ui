@@ -22,7 +22,7 @@ export class CustomNotificationComponent implements OnInit {
 
   // raveendra is an object of datatype customnotification
   // customnitifcation is a class 
-  
+
 
   form: any;
 
@@ -43,25 +43,39 @@ export class CustomNotificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getNotifications();
   }
+
+  getNotifications() {
+
+    this.notificationService.getNotifcations().subscribe(
+      (notifs: CustomNotification[]) => {
+        console.log('notifs from servcer');
+        console.log(notifs);
+        this.notifications = notifs;
+      });
+  }
+
 
   onSubmit() {
     let notification: CustomNotification = new CustomNotification();
     notification.description = this.form.controls["notificationDescription"].value;
-    notification.address = this.form.controls["textBox4"].value;
-
 
     console.log('single object');
     console.log(notification);
 
-    this.notificationService.addNotification(notification);
-    
-    this.form.reset();
-    this.notifications.push(notification);
+    this.notificationService.addNotification(notification).subscribe(
+      (notify: CustomNotification) => {
+        this.form.reset();
+        this.notifications.push(notification);
 
-    console.log('array of notification');
+        console.log('array of notification');
 
-    console.log(this.notifications);
+        console.log(this.notifications);
+
+      });
+
+
   }
 
 }

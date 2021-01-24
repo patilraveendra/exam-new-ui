@@ -8,6 +8,8 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { CustomNotification } from '../../models/notification';
 import { CustomNotificationService } from '../../shared/services/custom-notification.service';
+import { AddUserService } from '../../shared/services/add-user.service';
+import { User } from '../../models/users';
 
 
 @Component({
@@ -19,17 +21,36 @@ import { CustomNotificationService } from '../../shared/services/custom-notifica
 export class AddUserComponent implements OnInit {
 
   categories = [
-    { id :1 , name: 'Student'},
-    { id :2 , name: 'Teacher'},
-    
+    { id: 'student', name: 'Student' },
+    { id: 'teacher', name: 'Teacher' },
+
   ];
-  
-  constructor() { }
+
+  constructor(
+    private route: ActivatedRoute,
+    private userService: AddUserService,
+    private router: Router,
+  ) { }
+
   submit(course) {
-    console.log(course);
+
+    //     category: "1"
+    // name: "rave@gmail.com"
+    // password: "student"
+    // username: "raveenra"
+
+
+    console.log('shubham wala user');
+    console.log(course.name);
+
+
+    this.userService.addUser(course).subscribe(
+      (user: User) => {
+        console.log('user added in database');
+      });
   }
-  
+
   ngOnInit() {
-  
+
   }
-  }
+}

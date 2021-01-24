@@ -35,6 +35,7 @@ import { CustomNotificationComponent } from './admin/custom-notification/custom-
 import { ExamListComponent } from './teacher/exam-list/exam-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { SeeResultTeacherComponent } from './teacher/see-result-teacher/see-result-teacher.component';
+//import { AdduserComponent } from './admin/adduser/adduser.component';
 
 
 @NgModule({

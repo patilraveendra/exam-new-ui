@@ -128,4 +128,10 @@ export class ExamService {
   // getExamQuestions(examId: string): Observable<any[]> {
   //   return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'questionsofexam');
   // }
+
+  getStudentAnswers(examId: number): Observable<any[]> {
+    return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'getallanswersofexambystudent/13');
+  }
+
+  
 }

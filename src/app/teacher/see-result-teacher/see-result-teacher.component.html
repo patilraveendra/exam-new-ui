@@ -1,0 +1,55 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Create Exam'" [icon]="'fa-book'"></app-page-header>
+    <div class="row">
+        <div class="form-group">
+            <label>Exam </label>
+            <select class="form-control">
+                <option>First Year</option>
+                <option>Second Year</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-12">
+            <div class="card mb-12">
+                <div class="card-header">
+                    Exam List
+                </div>
+
+                <div class="card-body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Student Id</th>
+                                <th>Correct</th>
+                                <th>Total Questions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let results of sturesult;let i=index">
+                                <th scope="row">{{i+1}}</th>
+                                <td> {{results.studentId}}</td>
+                                <td> {{results.correctAnswer}}</td>
+                                <td> {{results.totalQuestions}}</td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div class="card-footer">
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

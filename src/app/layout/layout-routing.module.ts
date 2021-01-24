@@ -8,6 +8,7 @@ import { QuestionAnswerComponent } from '../student/question-answer/question-ans
 import { CreateExamQuestionAddComponent } from '../teacher/create-exam-question-add/create-exam-question-add.component';
 import { CreateExamComponent } from '../teacher/create-exam/create-exam.component';
 import { ExamListComponent } from '../teacher/exam-list/exam-list.component';
+import { SeeResultTeacherComponent } from '../teacher/see-result-teacher/see-result-teacher.component';
 import { NotificationComponent } from './dashboard/components';
 import { LayoutComponent } from './layout.component';
 
@@ -32,6 +33,7 @@ const routes: Routes = [
             { path: 'add-user', component: AddUserComponent },
 
 
+            {path:   'see-result-teacher',component:SeeResultTeacherComponent}
 
         ]
     }

@@ -1,0 +1,57 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Add User'" [icon]="'fa-book'"></app-page-header>
+
+<form #f="ngForm" (ngSubmit)="submit(f.value)">
+    <h1>Add User</h1>
+      <div class="form-group">
+        <label for="name">USER ID</label>
+        <input required minlength="3" ngModel name="name" #name="ngModel" type="text" id="name" class="form-control">
+        <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+          <div *ngIf="name.errors.required">UserID  is required.</div>
+          <div *ngIf="name.errors.minlength">UserID should be at least {{ name.errors.minlength.requiredLength }} characters.</div>
+        </div>
+      </div>
+
+      
+      <div class="form-group">
+        <label for="username">USER NAME</label>
+        <input required minlength="3" ngModel name="username" #username="ngModel" type="text" id="username" class="form-control">
+        <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+            <div *ngIf="username.errors.required">Username is required.</div>
+            <div *ngIf="username.errors.minlength">UserNAME should be at least {{ username.errors.minlength.requiredLength }} characters.</div>
+        </div>
+      </div>
+       
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input required  minlength="4" ngModel name="password" #password="ngModel" type="text" id="password" class="form-control">
+          <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+            <div *ngIf="password.errors.required">Password is required.</div>
+            <div *ngIf="password.errors.minlength">Password  should be at least {{ password.errors.minlength.requiredLength }} characters.</div>
+          </div>
+       
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select required ngModel name="category" #category="ngModel" id="category" class="form-control">
+          <option value=""></option>
+          <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+        </select>
+        <div *ngIf="category.touched && category.invalid" class="alert alert-danger">
+          Category field is required.
+        </div>
+      </div>
+      <div class="checkbox">
+        <label for="Student">
+          <input ngModel name="Student" type="checkbox" id="Student">
+          Student
+        </label>
+        <label for="Teacher">
+          <input ngModel name="Teacher" type="checkbox" id="Teacher">
+          Teacher
+        </label>
+      </div>
+      <p>{{ f.value | json }}</p>
+      <button class="btn btn-primary" [disabled]="f.invalid">Create</button>
+    </form>
+    </div>

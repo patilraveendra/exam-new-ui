@@ -34,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CustomNotificationComponent } from './admin/custom-notification/custom-notification.component';
 import { ExamListComponent } from './teacher/exam-list/exam-list.component';
 import { MatTableModule } from '@angular/material/table';
+import { AddUserComponent } from './admin/add-user/add-user.component';
 //import { AdduserComponent } from './admin/adduser/adduser.component';
 
 
@@ -74,7 +75,7 @@ import { MatTableModule } from '@angular/material/table';
     ],
     declarations: [AppComponent, JoinExamComponent, JoinExamPasswordComponent,
          QuestionAnswerComponent, CreateExamComponent, CreateExamQuestionAddComponent, 
-         CreateExamQuestionListComponent, ReviewAnswersComponent, SeeResultComponent, CustomNotificationComponent, ExamListComponent
+         CreateExamQuestionListComponent, ReviewAnswersComponent, SeeResultComponent, CustomNotificationComponent, ExamListComponent, AddUserComponent
           ],
     providers: [AuthGuard, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
     bootstrap: [AppComponent]

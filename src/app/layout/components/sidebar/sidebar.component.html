@@ -34,7 +34,13 @@
                 [routerLink]="['/custom-notification']" class="list-group-item">
                 <i class="fa fa-fw fa-book"></i>&nbsp;
                 <span>{{ 'Create notifications'}}</span>
-            </a></div>
+            </a>
+
+            <a [routerLinkActive]="['router-link-active']" [routerLink]="['/add-user']" class="list-group-item">
+                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <span>{{'Add Users'}}</span>
+            </a>
+        </div>
 
     </div>
 

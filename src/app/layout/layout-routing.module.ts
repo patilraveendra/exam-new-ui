@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddUserComponent } from '../admin/add-user/add-user.component';
 import { CustomNotificationComponent } from '../admin/custom-notification/custom-notification.component';
 import { JoinExamPasswordComponent } from '../student/join-exam-password/join-exam-password.component';
 import { JoinExamComponent } from '../student/join-exam/join-exam.component';
@@ -28,6 +29,9 @@ const routes: Routes = [
             { path: 'create-exam-question', component: CreateExamQuestionAddComponent },
             { path: 'custom-notification', component: CustomNotificationComponent },
             { path: 'exam-list', component: ExamListComponent },
+            { path: 'add-user', component: AddUserComponent },
+
+
 
         ]
     }

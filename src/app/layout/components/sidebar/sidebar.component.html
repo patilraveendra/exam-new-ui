@@ -28,6 +28,10 @@
                 <i class="fa fa-fw fa-book"></i>&nbsp;
                 <span>{{'Exams'}}</span>
             </a>
+            <a [routerLinkActive]="['router-link-active']" [routerLink]="['/see-result-teacher']" class="list-group-item">
+                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <span>{{'See Results'}}</span>
+            </a>
 
         </div>
         <div *ngIf="isAdmin$ | async as isAdmin"> <a [routerLinkActive]="['router-link-active']"

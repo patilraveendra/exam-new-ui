@@ -17,6 +17,12 @@ export class AddUserService {
 
   constructor(private http: HttpClient,) { }
 
+
+  getUsers(): Observable<any[]> {
+    return this.http.get<User[]>(AppSettings.API_ENDPOINT + 'users');
+  }
+
+
   addUser(userToAdd: any): Observable<User> {
     console.log('I am in service userToAdd');
     console.log(userToAdd);

@@ -12,9 +12,11 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Exam Id</th>
+                               
                                 <th>Description</th>
                                 <th>Exam Code</th>
+                                <th>Exam Password</th>
+
                                 <th>Date</th>
                                 <th>Starts From</th>
                                 <th>Ends At</th>
@@ -23,9 +25,10 @@
                         <tbody>
                             <tr *ngFor="let exam of exams;let i=index">
                                 <th scope="row">{{i+1}}</th>
-                                <td> {{exam.examId}}</td>
-                                <td> {{exam.examCode}}</td>
                                 <td> {{exam.examDescription}}</td>
+                                <td> {{exam.examCode}}</td>
+                                <td> {{exam.examPassword}}</td>
+
                                 <td> {{exam.examDate}}</td>
                                 <td> {{exam.examTime}}</td>
                                 <td> {{exam.examEndTime}}</td>

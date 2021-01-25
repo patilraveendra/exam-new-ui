@@ -40,15 +40,16 @@ export class ExamListComponent implements OnInit {
 
   getExamData() {
 
-    this.exams = JSON.parse(JSON.stringify(exams));
+    // this.exams = JSON.parse(JSON.stringify(exams));
 
-    console.log('exams');
-    console.log(this.exams);
+    // console.log('exams');
+    // console.log(this.exams);
 
-    // this.examservice.getExams().subscribe((exams: Exam[]) => {
-    //   this.exams = exams;
-    //   this.dataSource.data = [...this.exams];
-    // });
+    this.examservice.getExams().subscribe((exams: Exam[]) => {
+      this.exams = exams;
+    });
+
+    
   }
 
 }

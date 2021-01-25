@@ -1,17 +1,17 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Create Exam'" [icon]="'fa-book'"></app-page-header>
+    <app-page-header [heading]="'Exam Results'" [icon]="'fa-book'"></app-page-header>
     <div class="row">
-        <div class="form-group">
-            <label>Exam </label>
-            <select class="form-control">
-                <option>First Year</option>
-                <option>Second Year</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </div>
 
+        <div class="col col-sm-6">
+            <label>Select Exam</label>
+        </div>
+        <div class="col col-sm-6">
+            <div class="form-group">
+                <select class="form-control" (change)="examChanged()" [(ngModel)]="selectedExam">
+                    <option *ngFor="let exam of exams" value={{exam.id}}>{{exam.examDescription}}</option>
+                </select>
+            </div>
+        </div>
 
     </div>
 
@@ -28,6 +28,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Student Id</th>
+                                <th>Student Name</th>
                                 <th>Correct</th>
                                 <th>Total Questions</th>
 
@@ -37,6 +38,7 @@
                             <tr *ngFor="let results of sturesult;let i=index">
                                 <th scope="row">{{i+1}}</th>
                                 <td> {{results.studentId}}</td>
+                                <td> {{results.studentName}}</td>
                                 <td> {{results.correctAnswer}}</td>
                                 <td> {{results.totalQuestions}}</td>
 
@@ -47,7 +49,7 @@
                 </div>
 
                 <div class="card-footer">
-                     
+
                 </div>
             </div>
         </div>

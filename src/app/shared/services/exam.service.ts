@@ -38,7 +38,7 @@ export class ExamService {
   }
 
   getExams(): Observable<any[]> {
-    return this.http.get<Exam[]>('https://localhost:44390/api/exam/question/1');
+    return this.http.get<Exam[]>(AppSettings.API_ENDPOINT + 'exams');
   }
 
   checkExamPassword(examId: string, password: string): Observable<Exam> {
@@ -123,15 +123,15 @@ export class ExamService {
   }
 
 
-  
+
 
   // getExamQuestions(examId: string): Observable<any[]> {
   //   return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'questionsofexam');
   // }
 
-  getStudentAnswers(examId: number): Observable<any[]> {
-    return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'getallanswersofexambystudent/15');
+  getStudentAnswers(examId: string): Observable<any[]> {
+    return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'getallanswersofexambystudent/'+examId);
   }
 
-  
+
 }

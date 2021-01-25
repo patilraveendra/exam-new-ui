@@ -1,15 +1,10 @@
-
 export class StudentAnswer {
-    id: number;
-
-    questionid: string;
-
-    rightoption: string;
-
-    selectedoption: string;
-
+    isActive: boolean;
     examid: number;
-
     studentid: number;
+    questionid: number;
+    id: number;
+    selectedoption: string;
+    rightoption: string;
+    isRightAnswer:boolean;
 }
-

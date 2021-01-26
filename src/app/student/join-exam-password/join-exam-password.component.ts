@@ -40,18 +40,14 @@ export class JoinExamPasswordComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log('call exam service with password');
 
       this.examservice.checkExamPassword(localStorage.getItem('examid'),
         this.form.get('examPassword').value
       )
         .subscribe(
           (exam: Exam) => {
-            console.log('returned exam');
-            console.log(exam);
             if (exam) {
               exam.isPasswordValid = "Y";
-              console.log('exam password is right');
               this.startExam();
             } else {
               this.wrongPassword = true;
@@ -67,7 +63,6 @@ export class JoinExamPasswordComponent implements OnInit {
   startExam() {
     this.examservice.startExam(localStorage.getItem('examid'),localStorage.getItem('studentid')).subscribe(
       (studentExam: StudentExam) => {
-        console.log('entry made in student exam table');
         this.router.navigate(['/exam-question-answer']);
       });
 

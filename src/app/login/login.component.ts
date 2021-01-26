@@ -32,13 +32,7 @@ export class LoginComponent implements OnInit {
     }
 
     onLoggedin() {
-        console.log('login button clicked');
         localStorage.setItem('isLoggedin', 'true');
-
-
-        console.log('form check');
-        console.log(this.username);
-        console.log(this.password);
 
         let user: User = {
             userName: this.username,
@@ -47,18 +41,7 @@ export class LoginComponent implements OnInit {
         };
 
         this.authService.login(user);
-        console.log(localStorage.getItem('role'));
 
         this.formSubmitAttempt = true;
     }
 }
-
-// implements OnInit {
-//     constructor(public router: Router) {}
-
-//     ngOnInit() {}
-
-//     onLoggedin() {
-//         localStorage.setItem('isLoggedin', 'true');
-//     }
-// }

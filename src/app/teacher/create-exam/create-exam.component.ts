@@ -53,16 +53,10 @@ export class CreateExamComponent implements OnInit {
     this.newExam.examPassword = this.form.controls["examPassword"].value;
 
 
-    console.log('we will now create one exam');
-
-    console.log(this.newExam);
-
     this.examservice.createExam(this.newExam).subscribe(data => {
       this.examId = data.id;
       this.newExam.examId = data.id;
       this.newExam.id = data.id;
-      console.log('exam created');
-      console.log(this.examId);
       this.router.navigateByUrl('/create-exam-question', { state: this.newExam });
     });
 

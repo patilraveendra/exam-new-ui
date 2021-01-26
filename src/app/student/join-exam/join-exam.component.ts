@@ -39,17 +39,14 @@ export class JoinExamComponent implements OnInit {
 
   onSubmit() {
 
-    console.log('form submit');
     if (this.form.valid) {
-      console.log('call exam service');
 
       this.examservice.joinExam(this.form.get('examCode').value,
         this.form.get('name').value,
         localStorage.getItem('studentid'))
         .subscribe(
           (exam: Exam) => {
-            console.log("exam service success");
-            console.log(exam);
+           
             localStorage.setItem('examid', exam.id.toString());
             this.router.navigate(['/join-exam-password']);
           });

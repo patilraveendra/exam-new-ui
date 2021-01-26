@@ -24,8 +24,6 @@ export class AddUserService {
 
 
   addUser(userToAdd: any): Observable<User> {
-    console.log('I am in service userToAdd');
-    console.log(userToAdd);
 
     let body = {
       "userId": userToAdd.name,

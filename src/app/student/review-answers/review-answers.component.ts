@@ -19,6 +19,5 @@ export class ReviewAnswersComponent implements OnInit {
 
   submitAnswer() {
     this.answerSubmitted = true;
-    console.log('answer submitted');
   }
 }

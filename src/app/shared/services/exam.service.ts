@@ -29,7 +29,6 @@ export class ExamService {
 
 
   joinExam(examCode: string, studentName: string, studentId: string): Observable<Exam> {
-    console.log('starting joinExam service');
     let body = {
       examCode: examCode
     };
@@ -42,21 +41,17 @@ export class ExamService {
   }
 
   checkExamPassword(examId: string, password: string): Observable<Exam> {
-    console.log('starting check password Exam service');
     let body = {
       examId: examId,
       examPassword: password
     };
 
-    // let _missionAnnouncedSource: Exam = new Exam();
-    // _missionAnnouncedSource.examId = parseInt(examId);
-    // return of(_missionAnnouncedSource);
+   
 
     return this.http.post<Exam>(AppSettings.API_ENDPOINT + 'checkExamPassword', JSON.stringify(body), httpOptions);
   }
 
   startExam(examId: string, studentid: string): Observable<StudentExam> {
-    console.log('starting start Exam service');
     let body = {
       examid: examId,
       studentid: studentid
@@ -70,7 +65,6 @@ export class ExamService {
   }
 
   createExam(exam: Exam): Observable<Exam> {
-    console.log('starting startExam service');
     let body = {
       examCode: exam.examCode,
       examDescription: exam.examDescription,
@@ -83,7 +77,6 @@ export class ExamService {
 
 
   createQuestion(question: Questions): Observable<Questions> {
-    console.log('starting startExam service');
     let body = {
       "question": question.question,
       "optionA": question.optionA,
@@ -109,7 +102,6 @@ export class ExamService {
 
   saveStudentsAnswer(question: Questions): Observable<Questions> {
 
-    console.log('saving student answer');
 
     let body = {
       "examid": localStorage.getItem('examid'),

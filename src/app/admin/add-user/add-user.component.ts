@@ -34,19 +34,9 @@ export class AddUserComponent implements OnInit {
 
   submit(course) {
 
-    //     category: "1"
-    // name: "rave@gmail.com"
-    // password: "student"
-    // username: "raveenra"
-
-
-    console.log('shubham wala user');
-    console.log(course.name);
-
-
     this.userService.addUser(course).subscribe(
       (user: User) => {
-        console.log('user added in database');
+
       });
   }
 

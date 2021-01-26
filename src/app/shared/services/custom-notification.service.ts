@@ -17,8 +17,6 @@ export class CustomNotificationService {
   constructor(private http: HttpClient,) { }
 
   addNotification(notificationToInsert: CustomNotification): Observable<CustomNotification> {
-    console.log('I am in service');
-    console.log(notificationToInsert);
 
     let body = {
       "description": notificationToInsert.description

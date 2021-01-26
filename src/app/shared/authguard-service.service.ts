@@ -37,14 +37,10 @@ export class AuthguardServiceService {
 
   login(user: User) {
 
-    console.log('auth guard login function called');
     if (user.userName !== '' && user.password !== '') {
 
       this.authservice.checkUserName(user).subscribe(data => {
-        console.log("user validated");
-        console.log(data);
-        console.log(data.id);
-        console.log(data.name);
+  
         this.setUserFields(data);
         this.router.navigate(['/dashboard']);
       });
@@ -62,7 +58,6 @@ export class AuthguardServiceService {
       this.isStudent.next(true);
       this.isTeacher.next(false);
       this.isAdmin.next(false);
-      console.log('login student');
     }
 
     if (loggedInuser.role == 'teacher') {
@@ -71,7 +66,6 @@ export class AuthguardServiceService {
       this.isTeacher.next(true);
       this.isStudent.next(false);
       this.isAdmin.next(false);
-      console.log('login teacher');
     }
     if (loggedInuser.role == 'admin') {
       localStorage.setItem('adminid', loggedInuser.id);
@@ -79,7 +73,6 @@ export class AuthguardServiceService {
       this.isTeacher.next(false);
       this.isStudent.next(false);
       this.isAdmin.next(true);
-      console.log('login admin');
     }
   }
 

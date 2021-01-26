@@ -34,22 +34,17 @@ export class QuestionAnswerComponent implements OnInit {
 
   getQuestionData(examId: string) {
 
-    console.log('hard coded');
 
     this.examservice.getExamQuestions(examId).subscribe(
       (questions: Questions[]) => {
         this.questionSet = questions;
         this.currentQuestion = questions[0];
         this.currentIndex = 0;
-        console.log('questions received from database');
-        console.log(this.questionSet);
       });
 
   }
 
   onNext() {
-    console.log('answers given by student');
-     
 
     let answer: Questions = this.currentQuestion;
     answer.selectedOption = this.selectedAnswer;

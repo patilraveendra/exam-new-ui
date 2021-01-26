@@ -37,8 +37,7 @@ export class CreateExamQuestionAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('exam loaded from route state');
-    console.log(history.state);
+
     this.exam = history.state;
   }
 
@@ -56,8 +55,7 @@ export class CreateExamQuestionAddComponent implements OnInit {
 
 
     this.examservice.createQuestion(addedQuestion).subscribe(data => {
-      console.log('question created');
-      console.log(addedQuestion);
+     
       this.questions.push(addedQuestion);
       this.form.reset();
     });

@@ -19,7 +19,6 @@ export class SeeResultComponent implements OnInit {
   }
 
   processResults() {
-    console.log('computing score');
     let numCallbackRuns = 0;
     this.studentAnswers.forEach(function (answer) {
       if (answer.rightOption == answer.selectedOption) {

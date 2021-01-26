@@ -43,10 +43,6 @@ export class SidebarComponent implements OnInit {
         this.isStudent$ = this.authService.isStudentRole;
         this.isTeacher$ = this.authService.isTeacherRole;
         this.isAdmin$ =this.authService.isAdminRole;
-        console.log('navigation');
-        console.log(this.isStudent$);
-        console.log(this.isTeacher$);
-
         
     }
 

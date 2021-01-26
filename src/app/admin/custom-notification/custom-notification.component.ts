@@ -50,8 +50,6 @@ export class CustomNotificationComponent implements OnInit {
 
     this.notificationService.getNotifcations().subscribe(
       (notifs: CustomNotification[]) => {
-        console.log('notifs from servcer');
-        console.log(notifs);
         this.notifications = notifs;
       });
   }
@@ -61,17 +59,10 @@ export class CustomNotificationComponent implements OnInit {
     let notification: CustomNotification = new CustomNotification();
     notification.description = this.form.controls["notificationDescription"].value;
 
-    console.log('single object');
-    console.log(notification);
-
     this.notificationService.addNotification(notification).subscribe(
       (notify: CustomNotification) => {
         this.form.reset();
         this.notifications.push(notification);
-
-        console.log('array of notification');
-
-        console.log(this.notifications);
 
       });
 

@@ -43,30 +43,32 @@ export class CustomNotificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('page loaded');
     this.getNotifications();
   }
 
   getNotifications() {
-
+    console.log('notifcation service called');
     this.notificationService.getNotifcations().subscribe(
       (notifs: CustomNotification[]) => {
+        console.log('get called 9494');
         this.notifications = notifs;
       });
   }
 
 
   onSubmit() {
+    console.log('save notification called');
     let notification: CustomNotification = new CustomNotification();
     notification.description = this.form.controls["notificationDescription"].value;
 
     this.notificationService.addNotification(notification).subscribe(
+
       (notify: CustomNotification) => {
+        console.log('data called from 9494');
         this.form.reset();
         this.notifications.push(notification);
-
       });
-
-
   }
 
 }

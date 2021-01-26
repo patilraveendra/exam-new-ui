@@ -11,14 +11,12 @@
                 <span>{{ 'Give Exam' }}</span>
             </a>
 
-            <a [routerLinkActive]="['router-link-active']" [routerLink]="['/see-results']" class="list-group-item">
-                <i class="fa fa-fw fa-book"></i>&nbsp;
-                <span>{{ 'See results'}}</span>
-            </a>
+          
 
         </div>
 
         <div *ngIf="isTeacher$ | async as isTeacher">
+           
             <a [routerLinkActive]="['router-link-active']" [routerLink]="['/create-exam']" class="list-group-item">
                 <i class="fa fa-fw fa-book"></i>&nbsp;
                 <span>{{ 'Create exam'}}</span>

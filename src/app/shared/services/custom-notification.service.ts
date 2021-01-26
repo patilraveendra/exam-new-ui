@@ -18,6 +18,7 @@ export class CustomNotificationService {
 
   addNotification(notificationToInsert: CustomNotification): Observable<CustomNotification> {
 
+    console.log('add service called');
     let body = {
       "description": notificationToInsert.description
     };
@@ -27,6 +28,7 @@ export class CustomNotificationService {
 
 
   getNotifcations(): Observable<any[]> {
+    console.log('service call to GET');
     return this.http.get<CustomNotification[]>(AppSettings.API_ENDPOINT + 'notification');
   }
 

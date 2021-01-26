@@ -41,17 +41,8 @@
           Category field is required.
         </div>
       </div>
-      <div class="checkbox">
-        <label for="Student">
-          <input ngModel name="Student" type="checkbox" id="Student">
-          Student
-        </label>
-        <label for="Teacher">
-          <input ngModel name="Teacher" type="checkbox" id="Teacher">
-          Teacher
-        </label>
-      </div>
-      <p>{{ f.value | json }}</p>
+     
+     
       <button class="btn btn-primary" [disabled]="f.invalid">Create</button>
     </form>
     </div>

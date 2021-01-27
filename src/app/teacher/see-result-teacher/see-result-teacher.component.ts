@@ -30,7 +30,7 @@ export class SeeResultTeacherComponent implements OnInit {
   ngOnInit(): void {
 
     this.userService.getUsers().subscribe((users: User[]) => {
-    
+      this.users = users;
     });
 
 
@@ -39,7 +39,7 @@ export class SeeResultTeacherComponent implements OnInit {
   }
 
 
-  examChanged() { 
+  examChanged() {
     this.sturesult = [];
     this.getResultData();
 
@@ -48,7 +48,7 @@ export class SeeResultTeacherComponent implements OnInit {
 
   getExams() {
     this.examservice.getExams().subscribe((exams: Exam[]) => {
-      this.exams = exams; 
+      this.exams = exams;
     });
   }
 
@@ -75,10 +75,10 @@ export class SeeResultTeacherComponent implements OnInit {
       uniqueStudentsResult = this.studentanswers.filter(
         answer => answer.studentid === element);
 
-  
+
 
       uniqueStudentsResult.forEach(function (answered) {
-        
+
         if (answered.rightoption == answered.selectedoption) {
           numCallbackRuns = numCallbackRuns + 1;
         }
@@ -95,7 +95,7 @@ export class SeeResultTeacherComponent implements OnInit {
 
     });
 
-  
+
 
   }
 

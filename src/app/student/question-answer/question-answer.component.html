@@ -1,10 +1,16 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'Question'" [icon]="'fa-book'"></app-page-header>
+    <div>
+       
+
+    </div>
     <div class="row">
         <div class="col col-sm-12">
             <div class="card mb-12">
                 <div class="card-header" *ngIf="!lastQuestion">
-                    Please answer following questions
+                    Please answer following questions your time left is - 
+                    <countdown [config]="{leftTime: 30}" (event)="handleEvent($event)"></countdown>
+                    <div *ngIf="timeup">Your time is finishing soon!</div>
                 </div>
 
                 <div class="card-body">

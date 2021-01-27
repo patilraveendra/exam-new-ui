@@ -6,7 +6,6 @@ import { Questions } from '../../models/questions';
 import { routerTransition } from '../../router.animations';
 import { questions } from '../../shared/jsondata/question.json';
 
-
 @Component({
   selector: 'app-question-answer',
   templateUrl: './question-answer.component.html',
@@ -20,6 +19,8 @@ export class QuestionAnswerComponent implements OnInit {
   currentIndex: number;
   selectedAnswer: string;
   lastQuestion: boolean;
+  timeup: boolean;
+
 
   constructor(
     private fb: FormBuilder,
@@ -62,5 +63,12 @@ export class QuestionAnswerComponent implements OnInit {
           }
         }
       });
+  }
+
+  handleEvent($event) {
+    if ($event.left === 0) {
+      this.timeup = true;
+    }
+    console.log($event.left);
   }
 }

@@ -38,6 +38,8 @@ import { AddUserComponent } from './admin/add-user/add-user.component';
 import { SeeResultTeacherComponent } from './teacher/see-result-teacher/see-result-teacher.component';
 //import { AdduserComponent } from './admin/adduser/adduser.component';
 import { DatePipe } from '@angular/common';
+import { CountdownModule } from 'ngx-countdown';
+
 
 @NgModule({
     imports: [
@@ -73,6 +75,7 @@ import { DatePipe } from '@angular/common';
         NgbModule,
         MatSelectModule,
         MatTableModule,
+        CountdownModule
     ],
     declarations: [AppComponent, JoinExamComponent, JoinExamPasswordComponent,
         QuestionAnswerComponent, CreateExamComponent, CreateExamQuestionAddComponent,

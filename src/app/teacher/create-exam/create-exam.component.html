@@ -10,22 +10,32 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-4">
-                                <div class="input-group datepicker-input "
-                                    style="padding-top: 42px;padding-bottom: 10px;">
+                                <div class="input-group datepicker-input ">
+                                    <mat-label>Exam Date</mat-label>
 
-                                    <input formControlName="examDate" #d="ngbDatepicker" class="form-control" name="dp"
+                                    <input matInput placeholder="Ex. 23/12/2009" formControlName="examDate">
+
+                                    <!-- <input formControlName="examDate" #d="ngbDatepicker" class="form-control" name="dp"
                                         ngbDatepicker placeholder="yyyy-mm-dd" />
                                     <button (click)="d.toggle()" class="input-group-addon" type="button">
                                         <span class="fa fa-calendar"></span>
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                             <div class="col-sm-4  changeSize">
-                                <ngb-timepicker formControlName="examTime"></ngb-timepicker>
+                                <mat-label>Exam Time</mat-label>
+
+                                <input matInput placeholder="10:30" formControlName="examTime">
+
+                                <!-- <ngb-timepicker formControlName="examTime"></ngb-timepicker> -->
                             </div>
 
                             <div class="col-sm-4 changeSize">
-                                <ngb-timepicker formControlName="examEndTime"></ngb-timepicker>
+                                <mat-label>Exam Ends at:</mat-label>
+
+                                <input matInput placeholder="12:20" formControlName="examEndTime">
+
+                                <!-- <ngb-timepicker formControlName="examEndTime"></ngb-timepicker> -->
                             </div>
                         </div>
                         <div class="form-group">
@@ -37,15 +47,15 @@
                         <div class="form-group">
                             <mat-form-field class="example-full-width">
                                 <mat-label>Exam Description</mat-label>
-                                    <textarea matInput placeholder="Exam for Thrid year..."
-                                        formControlName="examDescription"></textarea>
+                                <textarea matInput placeholder="Exam for Thrid year..."
+                                    formControlName="examDescription"></textarea>
                             </mat-form-field>
                         </div>
                         <div class="form-group">
                             <mat-form-field class="example-full-width">
                                 <mat-label>Exam Password</mat-label>
-                                    <textarea matInput placeholder="Exam for Thrid year..."
-                                        formControlName="examPassword"></textarea>
+                                <textarea matInput placeholder="Exam for Thrid year..."
+                                    formControlName="examPassword"></textarea>
                             </mat-form-field>
                         </div>
                     </div>

@@ -41,6 +41,10 @@ export class CreateExamQuestionAddComponent implements OnInit {
     this.exam = history.state;
   }
 
+  redirectToList(){
+    this.router.navigate(['/exam-list']);
+  }
+
   onSubmit() {
     let addedQuestion: Questions = {
       selectedOption: '',

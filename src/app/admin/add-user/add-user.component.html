@@ -1,7 +1,7 @@
 <div [@routerTransition]>
   <app-page-header [heading]="'Add User'" [icon]="'fa-book'"></app-page-header>
 
-<form #f="ngForm" (ngSubmit)="submit(f.value)">
+<form #f="ngForm" (ngSubmit)="submit(f.value);f.reset()">
     <h1>Add User</h1>
       <div class="form-group">
         <label for="name">USER ID</label>
@@ -42,6 +42,9 @@
         </div>
       </div>
      
+      <div class="alert alert-success" *ngIf="success">
+        <strong>Success!</strong> You successfully added the user!.
+    </div>
      
       <button class="btn btn-primary" [disabled]="f.invalid">Create</button>
     </form>

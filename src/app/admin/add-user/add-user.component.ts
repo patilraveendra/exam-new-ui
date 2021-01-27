@@ -20,6 +20,8 @@ import { User } from '../../models/users';
 })
 export class AddUserComponent implements OnInit {
 
+  success = false;
+
   categories = [
     { id: 'student', name: 'Student' },
     { id: 'teacher', name: 'Teacher' },
@@ -36,7 +38,7 @@ export class AddUserComponent implements OnInit {
 
     this.userService.addUser(course).subscribe(
       (user: User) => {
-
+        this.success = true;
       });
   }
 

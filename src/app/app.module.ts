@@ -37,7 +37,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AddUserComponent } from './admin/add-user/add-user.component';
 import { SeeResultTeacherComponent } from './teacher/see-result-teacher/see-result-teacher.component';
 //import { AdduserComponent } from './admin/adduser/adduser.component';
-
+import { DatePipe } from '@angular/common';
 
 @NgModule({
     imports: [
@@ -82,7 +82,8 @@ import { SeeResultTeacherComponent } from './teacher/see-result-teacher/see-resu
         SeeResultComponent, CustomNotificationComponent,
         ExamListComponent, SeeResultTeacherComponent
     ],
-    providers: [AuthGuard, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
+    providers: [AuthGuard, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+        DatePipe],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

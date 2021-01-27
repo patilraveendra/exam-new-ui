@@ -5,7 +5,7 @@ import { AppSettings } from '../../appsettings';
 import { StudentExam } from '../../models/studentExam';
 import { Exam } from '../../models/exams';
 import { Questions } from '../../models/questions';
-
+import { DatePipe } from '@angular/common'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,7 +17,9 @@ const httpOptions = {
 
 export class ExamService {
 
-  constructor(private http: HttpClient,) { }
+  constructor(private http: HttpClient,
+    public datepipe: DatePipe
+  ) { }
 
   isValidCode(id: number): boolean {
     return true;
@@ -46,7 +48,7 @@ export class ExamService {
       examPassword: password
     };
 
-   
+
 
     return this.http.post<Exam>(AppSettings.API_ENDPOINT + 'checkExamPassword', JSON.stringify(body), httpOptions);
   }
@@ -65,11 +67,18 @@ export class ExamService {
   }
 
   createExam(exam: Exam): Observable<Exam> {
+
+
+
     let body = {
       examCode: exam.examCode,
       examDescription: exam.examDescription,
       examActive: exam.isActive,
       examPassword: exam.examPassword,
+      examDate: exam.examDate,
+      examTime: exam.examTime,
+      examEndTime: exam.examEndTime
+
     };
 
     return this.http.post<Exam>(AppSettings.API_ENDPOINT + 'createexam', JSON.stringify(body), httpOptions);
@@ -122,7 +131,7 @@ export class ExamService {
   // }
 
   getStudentAnswers(examId: string): Observable<any[]> {
-    return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'getallanswersofexambystudent/'+examId);
+    return this.http.get<Questions[]>(AppSettings.API_ENDPOINT + 'getallanswersofexambystudent/' + examId);
   }
 
 

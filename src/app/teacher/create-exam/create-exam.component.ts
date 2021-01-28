@@ -52,6 +52,12 @@ export class CreateExamComponent implements OnInit {
     this.newExam.examEndTime = this.form.controls["examEndTime"].value;
     this.newExam.examPassword = this.form.controls["examPassword"].value;
 
+    this.newExam.examDateAsString = this.newExam.examDate['day'] + '/' + this.newExam.examDate['month'] + '/' + this.newExam.examDate['year'];
+
+    console.log(this.newExam.examEndTime);
+    this.newExam.examTimeAsString = this.newExam.examTime['hour'] + ':' + this.newExam.examTime['minute'] + ':' + this.newExam.examTime['second'];
+
+    this.newExam.examEndTimeAsString = this.newExam.examEndTime['hour'] + ':' + this.newExam.examEndTime['minute'] + ':' + this.newExam.examEndTime['second'];
 
     this.examservice.createExam(this.newExam).subscribe(data => {
       this.examId = data.id;

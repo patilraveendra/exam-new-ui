@@ -8,8 +8,15 @@
         <div class="col col-sm-12">
             <div class="card mb-12">
                 <div class="card-header" *ngIf="!lastQuestion">
-                    Please answer following questions your time left is - 
-                    <countdown [config]="{leftTime: 30}" (event)="handleEvent($event)"></countdown>
+                    Please answer following questions 
+                    <br/>
+                    
+                    <!-- <countdown [config]="{leftTime: 30}" (event)="handleEvent($event)"></countdown> -->
+                    
+                    <div class="basic-container">
+                        <mat-progress-bar mode="determinate" [value]="progressbarValue" [color]="updateColor(progressbarValue)"></mat-progress-bar>
+                    </div>
+
                     <div *ngIf="timeup">Your time is finishing soon!</div>
                 </div>
 

@@ -47,4 +47,8 @@ export class ExamListComponent implements OnInit {
     
   }
 
+  gotoCreateExam(){
+    this.router.navigate(['/create-exam']);
+  }
+
 }

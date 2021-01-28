@@ -5,6 +5,7 @@ import { ExamService } from '../../shared/services/exam.service';
 import { Questions } from '../../models/questions';
 import { routerTransition } from '../../router.animations';
 import { questions } from '../../shared/jsondata/question.json';
+import { interval } from 'rxjs/internal/observable/interval';
 
 @Component({
   selector: 'app-question-answer',
@@ -13,6 +14,8 @@ import { questions } from '../../shared/jsondata/question.json';
   animations: [routerTransition()]
 })
 export class QuestionAnswerComponent implements OnInit {
+  progressbarValue = 100;
+  curSec: number = 0;
   questionSet: Questions[];
   studentAnswers: Questions[] = [];
   currentQuestion: Questions;
@@ -31,6 +34,8 @@ export class QuestionAnswerComponent implements OnInit {
   ngOnInit(): void {
 
     this.getQuestionData(localStorage.getItem('examid'));
+
+    this.startTimer(60);
   }
 
   getQuestionData(examId: string) {
@@ -71,4 +76,33 @@ export class QuestionAnswerComponent implements OnInit {
     }
     console.log($event.left);
   }
+
+  startTimer(seconds: number) {
+    const time = seconds;
+    const timer$ = interval(1000);
+
+    const sub = timer$.subscribe((sec) => {
+      this.progressbarValue = 100 - sec * 100 / seconds;
+      this.curSec = sec;
+
+      if (this.curSec === seconds) {
+        sub.unsubscribe();
+      }
+
+      console.log('seconds');
+      console.log(sec);
+      console.log(seconds);
+
+    });
+  }
+
+  updateColor(progress) {
+    if (progress<21){
+       return 'warn';
+    } else if (progress>80){
+       return 'primary';
+    } else {
+      return 'accent';
+    }
+ }
 }

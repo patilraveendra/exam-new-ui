@@ -8,5 +8,8 @@ export class Exam {
     examEndTime: string;
     examPassword: string;
     isPasswordValid: string;
+    examDateAsString:string;
+    examTimeAsString:string;
+    examEndTimeAsString:string;
     id: number;
 }

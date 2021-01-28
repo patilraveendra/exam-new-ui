@@ -1,5 +1,5 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Create Exam'" [icon]="'fa-book'"></app-page-header>
+    <app-page-header [heading]="'All Exams'" [icon]="'fa-book'"></app-page-header>
     <div class="row">
         <div class="col col-sm-12">
             <div class="card mb-12">
@@ -42,7 +42,7 @@
 
                 <div class="card-footer">
                     <div class="form-group">
-                        <button class="btn btn-primary" color="primary" type="submit">Create Exam</button>
+                        <button class="btn btn-primary" color="primary" (click)="gotoCreateExam()">Create Exam</button>
                         <button class="btn btn-secondary" type="submit">Cancel</button>
                     </div>
                 </div>

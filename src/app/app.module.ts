@@ -39,7 +39,7 @@ import { SeeResultTeacherComponent } from './teacher/see-result-teacher/see-resu
 //import { AdduserComponent } from './admin/adduser/adduser.component';
 import { DatePipe } from '@angular/common';
 import { CountdownModule } from 'ngx-countdown';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar'
 
 @NgModule({
     imports: [
@@ -75,7 +75,9 @@ import { CountdownModule } from 'ngx-countdown';
         NgbModule,
         MatSelectModule,
         MatTableModule,
-        CountdownModule
+        CountdownModule,
+        MatProgressBarModule
+
     ],
     declarations: [AppComponent, JoinExamComponent, JoinExamPasswordComponent,
         QuestionAnswerComponent, CreateExamComponent, CreateExamQuestionAddComponent,

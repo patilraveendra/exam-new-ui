@@ -75,9 +75,9 @@ export class ExamService {
       examDescription: exam.examDescription,
       examActive: exam.isActive,
       examPassword: exam.examPassword,
-      examDate: exam.examDate,
-      examTime: exam.examTime,
-      examEndTime: exam.examEndTime
+      examDate: exam.examDateAsString,
+      examTime: exam.examTimeAsString,
+      examEndTime: exam.examEndTimeAsString
 
     };
 

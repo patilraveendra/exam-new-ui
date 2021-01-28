@@ -39,18 +39,16 @@ export class QuestionAnswerComponent implements OnInit {
   }
 
   getQuestionData(examId: string) {
-
-
     this.examservice.getExamQuestions(examId).subscribe(
       (questions: Questions[]) => {
         this.questionSet = questions;
         this.currentQuestion = questions[0];
         this.currentIndex = 0;
       });
-
   }
 
   onNext() {
+
 
     let answer: Questions = this.currentQuestion;
     answer.selectedOption = this.selectedAnswer;
@@ -67,15 +65,13 @@ export class QuestionAnswerComponent implements OnInit {
             this.lastQuestion = true;
           }
         }
+
+
+
       });
   }
 
-  handleEvent($event) {
-    if ($event.left === 0) {
-      this.timeup = true;
-    }
-    console.log($event.left);
-  }
+  // 
 
   startTimer(seconds: number) {
     const time = seconds;
@@ -84,6 +80,16 @@ export class QuestionAnswerComponent implements OnInit {
     const sub = timer$.subscribe((sec) => {
       this.progressbarValue = 100 - sec * 100 / seconds;
       this.curSec = sec;
+
+      if (this.progressbarValue < 15) {
+        this.timeup = true;
+      }
+
+      if (this.progressbarValue < 3) {
+        this.timeup = true;
+        this.lastQuestion = true;
+        this.currentQuestion = null;
+      }
 
       if (this.curSec === seconds) {
         sub.unsubscribe();
@@ -97,12 +103,19 @@ export class QuestionAnswerComponent implements OnInit {
   }
 
   updateColor(progress) {
-    if (progress<21){
-       return 'warn';
-    } else if (progress>80){
-       return 'primary';
+    if (progress < 21) {
+      return 'warn';
+    } else if (progress > 80) {
+      return 'primary';
     } else {
       return 'accent';
     }
- }
+  }
+
+  // handleEvent($event) {
+  //   if ($event.left === 0) {
+  //     this.timeup = true;
+  //   }
+  //   console.log($event.left);
+  // }
 }

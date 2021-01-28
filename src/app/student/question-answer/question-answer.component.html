@@ -1,23 +1,22 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'Question'" [icon]="'fa-book'"></app-page-header>
     <div>
-       
+
 
     </div>
     <div class="row">
         <div class="col col-sm-12">
             <div class="card mb-12">
                 <div class="card-header" *ngIf="!lastQuestion">
-                    Please answer following questions 
+                    Please answer following questions
+                    <div *ngIf="timeup" style="background-color:tomato">Your time is
+                        finishing soon!</div>
                     <br/>
-                    
                     <!-- <countdown [config]="{leftTime: 30}" (event)="handleEvent($event)"></countdown> -->
-                    
                     <div class="basic-container">
-                        <mat-progress-bar mode="determinate" [value]="progressbarValue" [color]="updateColor(progressbarValue)"></mat-progress-bar>
+                        <mat-progress-bar mode="determinate" [value]="progressbarValue"
+                            [color]="updateColor(progressbarValue)"></mat-progress-bar>
                     </div>
-
-                    <div *ngIf="timeup">Your time is finishing soon!</div>
                 </div>
 
                 <div class="card-body">
@@ -49,8 +48,8 @@
                                             {{currentQuestion.optionD}}
                                         </mat-radio-button>
                                     </div>
-                                    
-                                    </mat-radio-group>
+
+                                </mat-radio-group>
                             </div>
                             <div fxLayout="row" fxLayoutAlign="space-between center">
                                 <button mat-raised-button color="primary" (click)="onNext()">Next Question</button>
@@ -59,7 +58,7 @@
                         </div>
                     </div>
                     <div *ngIf="lastQuestion">
-                        <app-review-answers [studentAnswers]="studentAnswers" ></app-review-answers>
+                        <app-review-answers [studentAnswers]="studentAnswers"></app-review-answers>
                     </div>
 
                 </div>

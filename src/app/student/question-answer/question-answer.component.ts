@@ -71,7 +71,9 @@ export class QuestionAnswerComponent implements OnInit {
       });
   }
 
-  // 
+ 
+
+  
 
   startTimer(seconds: number) {
     const time = seconds;

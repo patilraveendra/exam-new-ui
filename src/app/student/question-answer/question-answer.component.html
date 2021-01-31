@@ -1,5 +1,5 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Question'" [icon]="'fa-book'"></app-page-header>
+    <app-page-header [heading]="'Question'" [icon]="'fa-tasks'"></app-page-header>
     <div>
 
 
@@ -12,8 +12,10 @@
                     <div *ngIf="timeup" style="background-color:tomato">Your time is
                         finishing soon!</div>
                     <br/>
-                    <!-- <countdown [config]="{leftTime: 30}" (event)="handleEvent($event)"></countdown> -->
+                    <!--code for timer-->
+                     <countdown [config]="{leftTime: 60}" (event)="handleEvent($event)"></countdown> 
                     <div class="basic-container">
+                        <!--code for colourfull time line-->
                         <mat-progress-bar mode="determinate" [value]="progressbarValue"
                             [color]="updateColor(progressbarValue)"></mat-progress-bar>
                     </div>
@@ -53,7 +55,8 @@
                             </div>
                             <div fxLayout="row" fxLayoutAlign="space-between center">
                                 <button mat-raised-button color="primary" (click)="onNext()">Next Question</button>
-                                <button mat-raised-button color="warning" type="submit">Cancel</button>
+                                
+                                <!--button mat-raised-button color="warning" type="submit">Cancel</button-->
                             </div>
                         </div>
                     </div>

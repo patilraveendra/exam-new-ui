@@ -20,13 +20,13 @@ export class DashboardComponent implements OnInit {
             },
             {
                 imagePath: 'assets/images/slider2.jpg',
-                label: 'अधिक विषय',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                label: 'Do You Know',
+                text: 'Six million children out of school in India due to the impact of COVID-19; girls most affected.'
             },
             {
                 imagePath: 'assets/images/slider3.jpg',
                 label: 'Third slide label',
-                text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+                text: 'Parent are the first teacher they.'
             }
         );
 

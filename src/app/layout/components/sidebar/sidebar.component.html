@@ -7,7 +7,7 @@
 
         <div *ngIf="isStudent$ | async as isStudent">
             <a [routerLinkActive]="['router-link-active']" [routerLink]="['/join-exam']" class="list-group-item">
-                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <i class="fa fa-fw fa-trophy"></i>&nbsp;
                 <span>{{ 'Give Exam' }}</span>
             </a>
 
@@ -18,28 +18,28 @@
         <div *ngIf="isTeacher$ | async as isTeacher">
            
             <a [routerLinkActive]="['router-link-active']" [routerLink]="['/create-exam']" class="list-group-item">
-                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <i class="fa fa-fw fa-dropbox"></i>&nbsp;
                 <span>{{ 'Create exam'}}</span>
             </a>
 
             <a [routerLinkActive]="['router-link-active']" [routerLink]="['/exam-list']" class="list-group-item">
-                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <i class="fa fa-fw fa-calendar"></i>&nbsp;
                 <span>{{'Exams'}}</span>
             </a>
             <a [routerLinkActive]="['router-link-active']" [routerLink]="['/see-result-teacher']" class="list-group-item">
-                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <i class="fa fa-fw fa-linux"></i>&nbsp;
                 <span>{{'See Results'}}</span>
             </a>
 
         </div>
         <div *ngIf="isAdmin$ | async as isAdmin"> <a [routerLinkActive]="['router-link-active']"
                 [routerLink]="['/custom-notification']" class="list-group-item">
-                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <i class="fa fa-fw fa-bell"></i>&nbsp;
                 <span>{{ 'Create notifications'}}</span>
             </a>
 
             <a [routerLinkActive]="['router-link-active']" [routerLink]="['/add-user']" class="list-group-item">
-                <i class="fa fa-fw fa-book"></i>&nbsp;
+                <i class="fa fa-fw fa-group"></i>&nbsp;
                 <span>{{'Add Users'}}</span>
             </a>
         </div>

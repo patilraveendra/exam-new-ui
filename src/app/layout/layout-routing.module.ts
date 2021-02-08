@@ -32,6 +32,8 @@ const routes: Routes = [
             { path: 'custom-notification', component: CustomNotificationComponent },
             { path: 'exam-list', component: ExamListComponent },
             { path: 'add-user', component: AddUserComponent },
+
+            
             { path: 'see-result-teacher', component: SeeResultTeacherComponent }           
 
         ]

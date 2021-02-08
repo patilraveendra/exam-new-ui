@@ -25,6 +25,7 @@ export class AuthServiceService {
       userId: user.userName,
       password: user.password
     };
+    //send userid and pass for authentication
 
     return this.http.post<any>(AppSettings.API_ENDPOINT + 'authenticateUser', JSON.stringify(body), httpOptions);
 

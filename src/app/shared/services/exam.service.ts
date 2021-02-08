@@ -40,6 +40,7 @@ export class ExamService {
 
   getExams(): Observable<any[]> {
     return this.http.get<Exam[]>(AppSettings.API_ENDPOINT + 'exams');
+    //to get exams
   }
 
   checkExamPassword(examId: string, password: string): Observable<Exam> {
@@ -48,7 +49,7 @@ export class ExamService {
       examPassword: password
     };
 
-
+     //to send examid and password
 
     return this.http.post<Exam>(AppSettings.API_ENDPOINT + 'checkExamPassword', JSON.stringify(body), httpOptions);
   }
@@ -58,6 +59,7 @@ export class ExamService {
       examid: examId,
       studentid: studentid
     };
+    //send examid and password 
 
     // let _missionAnnouncedSource: Exam = new Exam();
     // _missionAnnouncedSource.examId = parseInt(examId);
@@ -80,6 +82,7 @@ export class ExamService {
       examEndTime: exam.examEndTimeAsString
 
     };
+    //send exam data 
 
     return this.http.post<Exam>(AppSettings.API_ENDPOINT + 'createexam', JSON.stringify(body), httpOptions);
   }
@@ -95,7 +98,7 @@ export class ExamService {
       "rightOption": question.rightOption,
       "examid": question.examId
     };
-
+            //send question data with options
     return this.http.post<Questions>(AppSettings.API_ENDPOINT + 'createquestion', JSON.stringify(body), httpOptions);
   }
 

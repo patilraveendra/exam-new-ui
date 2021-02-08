@@ -27,6 +27,11 @@ export class DashboardComponent implements OnInit {
                 imagePath: 'assets/images/slider3.jpg',
                 label: 'Third slide label',
                 text: 'Parent are the first teacher they.'
+            },
+            {
+                imagePath: 'assets/images/slider4.jpg',
+                label: 'Third slide label',
+                text: 'Parent are the first teacher they.'
             }
         );
 
@@ -34,18 +39,12 @@ export class DashboardComponent implements OnInit {
             {
                 id: 1,
                 type: 'success',
-                message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
+                message: ` dolorum`
             },
             {
                 id: 2,
                 type: 'warning',
-                message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
+                message: ` dolorum`
             }
         );
     }

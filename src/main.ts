@@ -11,3 +11,6 @@ if (environment.production) {
 platformBrowserDynamic()
     .bootstrapModule(AppModule)
     .catch((err) => console.error(err));
+
+    // our application will start from here like every programming language
+    // main class executes first

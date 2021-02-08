@@ -20,7 +20,7 @@ export class AuthguardServiceService {
   }
 
   get isStudentRole() {
-    return this.isStudent.asObservable();
+    return this.isStudent.asObservable();    //go to line no 58
   }
 
   get isTeacherRole() {

@@ -1,4 +1,4 @@
-# SB Admin rewritten in Angular9 and Bootstrap 4
+# Exam portal
 
 Simple Dashboard Admin App built using Angular 9 and Bootstrap 4
 

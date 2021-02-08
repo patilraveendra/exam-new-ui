@@ -1,3 +1,5 @@
+// these polyfills fill the gap which feature application required and the features supported by
+// the current browser
 /***************************************************************************************************
  * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
  */
@@ -23,7 +25,7 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
  *
  * Learn more in https://angular.io/guide/browser-support
  */
-
+ 
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */

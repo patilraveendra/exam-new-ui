@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class AddUserService {
 
   constructor(private http: HttpClient,) { }
@@ -21,7 +21,7 @@ export class AddUserService {
   getUsers(): Observable<any[]> {
     return this.http.get<User[]>(AppSettings.API_ENDPOINT + 'users');
   }
-
+  //to get user
 
   addUser(userToAdd: any): Observable<User> {
 
@@ -37,5 +37,7 @@ export class AddUserService {
     };
 
     return this.http.post<User>(AppSettings.API_ENDPOINT + 'addUser', JSON.stringify(body), httpOptions);
+
+    //to add users
   }
 }
